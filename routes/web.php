@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,15 @@ Route::resource('users', UserController::class)->parameters([
     'edit' => 'users.edit',
     'update' => 'users.update',
     'destroy' => 'users.destroy'
+]);
+
+Route::resource('registrations', RegistrationController::class)->parameters([
+    'registrations' => 'id'
+])->except(['show'])->names([
+    'index' => 'registrations.index',
+    'create' => 'registrations.create',
+    'store' => 'registrations.store',
+    'edit' => 'registrations.edit',
+    'update' => 'registrations.update',
+    'destroy' => 'registrations.destroy'
 ]);
