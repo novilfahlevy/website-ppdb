@@ -13,7 +13,7 @@ class RegistrationController extends Controller
     public function index()
     {
         $registrations = Registration::all();
-        return view('registration.index', compact('registrations'));
+        return view('admin.registration.index', compact('registrations'));
     }
 
     /**
@@ -21,7 +21,7 @@ class RegistrationController extends Controller
      */
     public function create()
     {
-        return view('registration.create');
+        return view('admin.registration.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class RegistrationController extends Controller
     public function edit(string $id)
     {
         $registration = Registration::findOrFail($id);
-        return view('registration.edit', compact('registration'));
+        return view('admin.registration.edit', compact('registration'));
     }
 
     /**

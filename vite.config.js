@@ -11,7 +11,9 @@ export default defineConfig({
                 'resources/css/sb-admin-2.min.css',
                 'resources/js/sb-admin-2.min.js',
                 'resources/js/demo/chart-area-demo.js',
-                'resources/js/demo/chart-pie-demo.js'
+                'resources/js/demo/chart-pie-demo.js',
+                'resources/css/main.css',
+                'resources/css/main.css',
             ],
             refresh: true,
         }),
