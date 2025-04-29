@@ -8,8 +8,8 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/pendaftaran', [HomeController::class, 'registration'])->name('registration');
-Route::post('/pendaftaran', [RegistrationApplicationController::class, 'store'])->name('registration.store');
+Route::get('/pendaftaran/{slug}', [HomeController::class, 'registration'])->name('registration');
+Route::post('/pendaftaran/{slug}', [RegistrationApplicationController::class, 'store'])->name('registration.store');
 Route::get('/pendaftaran-berhasil', [RegistrationApplicationController::class, 'showSuccess'])->name('registration.success');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -25,13 +25,16 @@ Route::resource('users', UserController::class)->parameters([
     'destroy' => 'users.destroy'
 ]);
 
-Route::resource('registrations', RegistrationController::class)->parameters([
-    'registrations' => 'id'
-])->except(['show'])->names([
-    'index' => 'registrations.index',
-    'create' => 'registrations.create',
-    'store' => 'registrations.store',
-    'edit' => 'registrations.edit',
-    'update' => 'registrations.update',
-    'destroy' => 'registrations.destroy'
-]);
+Route::resource('registrations', RegistrationController::class)
+    ->parameters(['registrations' => 'id'])
+    ->names([
+        'index' => 'registrations.index',
+        'show' => 'registrations.show',
+        'create' => 'registrations.create',
+        'store' => 'registrations.store',
+        'edit' => 'registrations.edit',
+        'update' => 'registrations.update',
+        'destroy' => 'registrations.destroy',
+    ]);
+
+Route::get('/registrations/{id}/applications', [RegistrationController::class, 'showApplication'])->name('registrations.application');

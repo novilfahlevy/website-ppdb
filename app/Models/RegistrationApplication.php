@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class RegistrationApplication extends Model
 {
     protected $fillable = [
+        'registration_id',
         'full_name',
         'nisn',
         'gender',
@@ -39,4 +40,9 @@ class RegistrationApplication extends Model
     protected $casts = [
         'birth_date' => 'date'
     ];
+
+    public function registration()
+    {
+        return $this->belongsTo(Registration::class, 'registration_id');
+    }
 }

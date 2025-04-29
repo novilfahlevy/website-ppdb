@@ -68,7 +68,13 @@
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Beranda<br></a></li>
-            <li><a href="{{ route('registration') }}" class="{{ request()->routeIs('registration') ? 'active' : '' }}">Daftar PPDB</a></li>
+            <li class="dropdown"><a href="#"><span>Pendaftaran</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                @foreach ($registrations as $registration)
+                  <li><a href="{{ route('registration', ['slug' => $registration->slug]) }}">{{ $registration->name }}</a></li>
+                @endforeach
+              </ul>
+            </li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>

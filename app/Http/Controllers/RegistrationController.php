@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Registration;
+use App\Models\RegistrationApplication;
 use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
@@ -48,7 +49,14 @@ class RegistrationController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $registration = Registration::findOrFail($id);
+        return view('admin.registration.show', compact('registration'));
+    }
+
+    public function showApplication(string $id)
+    {
+        $application = RegistrationApplication::findOrFail($id);
+        return view('admin.registration.show-application', compact('application'));
     }
 
     /**

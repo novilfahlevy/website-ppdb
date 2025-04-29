@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Registration;
 use App\Models\RegistrationApplication;
 use Illuminate\Http\Request;
 
 class RegistrationApplicationController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request, string $slug)
     {
         $validatedData = $request->validate([
             'full_name' => 'required|string|max:255',
@@ -73,8 +74,15 @@ class RegistrationApplicationController extends Controller
                 $validatedData['domicile_certificate_filepath'] = $request->file('domicile_certificate_filepath')->store('uploads/domicile_certificates', 'public');
             }
 
-            $registrationApplication = new RegistrationApplication($validatedData);
-            $registrationApplication->save();
+            // Ambil pendaftaran yang sedang dibuka
+            $registration = Registration::query()
+                ->where('slug', $slug)
+                ->where('is_open', true)
+                ->first();
+            
+            $application = new RegistrationApplication($validatedData);
+            $application->registration()->associate($registration);
+            $application->save();
 
             return redirect()->route('registration.success');
         } catch (\Exception $e) {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Registration;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,8 +12,9 @@ class HomeController extends Controller
         return view('index');
     }
 
-    public function registration()
+    public function registration(string $slug)
     {
-        return view('registration');
+        $registration = Registration::where('slug', $slug)->firstOrFail();
+        return view('registration', compact('registration'));
     }
 }
