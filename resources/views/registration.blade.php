@@ -10,9 +10,9 @@
 
             <div class="row">
                 <div class="col-12 col-lg-4 d-none d-lg-block">
-                    <div>
+                    <div class="position-sticky" style="top: 150px;">
                         <div class="info-container d-flex flex-column align-items-center justify-content-center">
-                            <div class="info-item d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                            <div class="info-item d-flex aos-init aos-animate" role="button" data-aos="fade-up" data-aos-delay="200" onclick="document.getElementById('personal-information').scrollIntoView({ behavior: 'smooth' });">
                                 <i class="bi bi-person flex-shrink-0"></i>
                                 <div>
                                     <h3>Informasi Pribadi</h3>
@@ -20,7 +20,7 @@
                                 </div>
                             </div>
 
-                            <div class="info-item d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                            <div class="info-item d-flex aos-init aos-animate" role="button" data-aos="fade-up" data-aos-delay="300" onclick="document.getElementById('parent-information').scrollIntoView({ behavior: 'smooth' });">
                                 <i class="bi bi-people flex-shrink-0"></i>
                                 <div>
                                     <h3>Informasi Orang Tua</h3>
@@ -28,7 +28,7 @@
                                 </div>
                             </div>
 
-                            <div class="info-item d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                            <div class="info-item d-flex aos-init aos-animate" role="button" data-aos="fade-up" data-aos-delay="400" onclick="document.getElementById('previous-school-information').scrollIntoView({ behavior: 'smooth' });">
                                 <i class="bi bi-building flex-shrink-0"></i>
                                 <div>
                                     <h3>Sekolah Asal</h3>
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
 
-                            <div class="info-item d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
+                            <div class="info-item d-flex aos-init aos-animate" role="button" data-aos="fade-up" data-aos-delay="500" onclick="document.getElementById('documents').scrollIntoView({ behavior: 'smooth' });">
                                 <i class="bi bi-file-earmark flex-shrink-0"></i>
                                 <div>
                                     <h3>Dokumen</h3>
@@ -52,7 +52,7 @@
                     </div>
 
                     <!-- Personal Information Card -->
-                    <div class="card mb-4">
+                    <div class="card mb-4" id="personal-information">
                         <div class="card-header d-flex align-items-center">
                             <i class="bi bi-person text-white me-2"></i>
                             <h5 class="mb-0">Informasi Pribadi</h5>
@@ -165,7 +165,7 @@
                     </div>
 
                     <!-- Parent Information Card -->
-                    <div class="card mb-4">
+                    <div class="card mb-4" id="parent-information">
                         <div class="card-header d-flex align-items-center">
                             <i class="bi bi-people text-white me-2"></i>
                             <h5>Informasi Orang Tua</h5>
@@ -298,7 +298,7 @@
                     </div>
 
                     <!-- Previous School Information Card -->
-                    <div class="card mb-4">
+                    <div class="card mb-4" id="previous-school-information">
                         <div class="card-header d-flex align-items-center">
                             <i class="bi bi-building text-white me-2"></i>
                             <h5>Informasi Sekolah Asal</h5>
@@ -363,7 +363,7 @@
                     </div>
 
                     <!-- Documents Card -->
-                    <div class="card mb-4">
+                    <div class="card mb-4" id="documents">
                         <div class="card-header d-flex align-items-center">
                             <i class="bi bi-file-earmark text-white me-2"></i>
                             <h5>Dokumen</h5>
