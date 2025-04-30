@@ -51,6 +51,16 @@
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Pendaftar</h6>
+                <form method="GET" action="{{ route('registrations.show', ['id' => $registration->id]) }}" class="d-inline-block d-flex align-items-center">
+                    <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white border-right-0">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </div>
+                        <input type="text" name="cari" class="form-control border-left-0" placeholder="Cari pendaftar..." value="{{ request('search') }}">
+                    </div>
+                </form>
             </div>
 
             <!-- Card Body -->
@@ -70,7 +80,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($registration->applications as $index => $application)
+                            @forelse ($applications as $index => $application)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $application->full_name }}</td>

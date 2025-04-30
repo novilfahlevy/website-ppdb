@@ -50,7 +50,19 @@ class RegistrationController extends Controller
     public function show(string $id)
     {
         $registration = Registration::findOrFail($id);
-        return view('admin.registration.show', compact('registration'));
+
+        $search = request('cari');
+        $applications = $registration->applications()
+            ->when($search, function ($query, $search) {
+                $query->where('full_name', 'like', "%{$search}%")
+                      ->orWhere('nisn', 'like', "%{$search}%")
+                      ->orWhere('personal_phone_number', 'like', "%{$search}%")
+                      ->orWhere('gender', 'like', "%{$search}%")
+                      ->orWhere('previous_school_name', 'like', "%{$search}%");
+            })
+            ->get();
+
+        return view('admin.registration.show', compact('registration', 'applications'));
     }
 
     public function showApplication(string $id)
