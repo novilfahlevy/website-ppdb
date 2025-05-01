@@ -31,23 +31,14 @@
                                 <td>{{ $registration->is_open ? 'Dibuka' : 'Selesai' }}</td>
                                 <td>{{ $registration->created_at->translatedFormat('l, d F Y H:i:s') }}</td>
                                 <td>
-                                    <a href="{{ route('registrations.edit', ['id' => $registration->id]) }}"
-                                        class="btn btn-sm btn-primary">Edit</a>
-                                    <form action="{{ route('registrations.destroy', ['id' => $registration->id]) }}"
-                                        method="POST" style="display: inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger"
-                                            onclick="return confirm('Apakah anda yakin ingin menghapus pendaftaran ini?')">Delete</button>
-                                    </form>
                                     <a href="{{ route('registrations.show', ['id' => $registration->id]) }}"
                                         class="btn btn-sm btn-info btn-outline">Lihat Pendaftar</a>
-                                    <form action="{{ route('registrations.archive', ['id' => $registration->id]) }}"
+                                    <form action="{{ route('registrations.unarchive', ['id' => $registration->id]) }}"
                                         method="POST" style="display: inline;">
                                         @csrf
                                         @method('PUT')
-                                        <button type="submit" class="btn btn-sm btn-warning"
-                                            onclick="return confirm('Apakah anda yakin ingin mengarsip pendafataran ini?')">Arsipkan</button>
+                                        <button type="submit" class="btn btn-sm btn-primary"
+                                            onclick="return confirm('Apakah anda yakin ingin mengeluarkan pendaftaran ini dari arsip?')">Keluarkan dari Arsip</button>
                                     </form>
                                 </td>
                             </tr>

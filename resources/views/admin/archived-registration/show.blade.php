@@ -36,13 +36,9 @@
                                 <td>Status</td>
                                 <td>
                                     <span>:</span>
-                                    @if ($registration->is_archived)
-                                        <span class="badge bg-warning text-white">Diarsipkan</span>
-                                    @elseif ($registration->is_open)
-                                        <span class="badge bg-success text-white">Dibuka</span>
-                                    @else
-                                        <span class="badge bg-danger text-white">Ditutup</span>
-                                    @endif
+                                    <span class="badge bg-{{ $registration->is_open ? 'success' : 'danger' }} text-white">
+                                        {{ $registration->is_open ? 'Dibuka' : 'Ditutup' }}
+                                    </span>
                                 </td>
                             </tr>
                         </table>

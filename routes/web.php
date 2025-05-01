@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArchivedRegistrationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -44,5 +45,9 @@ Route::middleware(['auth'])->group(function () {
             'destroy' => 'registrations.destroy',
         ]);
     
+    Route::put('/registrations/{id}/archive', [RegistrationController::class, 'archive'])->name('registrations.archive');
+    Route::put('/registrations/{id}/unarchive', [RegistrationController::class, 'unarchive'])->name('registrations.unarchive');
     Route::get('/registrations/{id}/applications', [RegistrationController::class, 'showApplication'])->name('registrations.application');
+
+    Route::get('/archived-registrations', [ArchivedRegistrationController::class, 'index'])->name('registrations.archived.index');
 });

@@ -13,7 +13,7 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        $registrations = Registration::all();
+        $registrations = Registration::unarchived()->get();
         return view('admin.registration.index', compact('registrations'));
     }
 
@@ -111,5 +111,25 @@ class RegistrationController extends Controller
         return redirect()
             ->route('registrations.index')
             ->with('success', 'Pendaftaran berhasil dihapus.');
+    }
+
+    public function archive(string $id)
+    {
+        $registration = Registration::unarchived()->findOrFail($id);
+        $registration->update(['is_archived' => true, 'is_open' => false]);
+
+        return redirect()
+            ->route('registrations.index')
+            ->with('success', 'Pendaftaran berhasil diarsipkan.');
+    }
+
+    public function unarchive(string $id)
+    {
+        $registration = Registration::archived()->findOrFail($id);
+        $registration->update(['is_archived' => false]);
+
+        return redirect()
+            ->route('registrations.index')
+            ->with('success', 'Pendaftaran berhasil dibuka kembali.');
     }
 }
