@@ -130,6 +130,6 @@ class RegistrationController extends Controller
 
         return redirect()
             ->route('registrations.index')
-            ->with('success', 'Pendaftaran berhasil dibuka kembali.');
+            ->with('success', 'Pendaftaran berhasil dikeluarkan dari arsip kembali.');
     }
 }

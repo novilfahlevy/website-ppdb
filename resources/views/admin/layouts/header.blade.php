@@ -181,3 +181,15 @@
         </li>
     </ul>
 </nav>
+
+@if (session('success'))
+    <div class="card bg-success text-white shadow rounded-0 mb-3 px-4 py-3" style="margin-top: -25px;">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="card bg-danger text-white shadow rounded-0 mb-3 px-4 py-3" style="margin-top: -25px;">
+        {{ session('error') }}
+    </div>
+@endif
