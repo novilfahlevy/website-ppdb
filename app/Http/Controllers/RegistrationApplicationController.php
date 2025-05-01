@@ -38,6 +38,7 @@ class RegistrationApplicationController extends Controller
             'recent_photo_filepath' => 'required|file|mimes:jpg,jpeg,png|max:15360',
             'achievement_certificate_filepath' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:15360',
             'domicile_certificate_filepath' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:15360',
+            'proof_of_payment_filepath' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:15360',
         ], [
             'full_name.required' => 'Nama lengkap harus diisi.',
             'nisn.required' => 'NISN harus diisi.',
@@ -55,9 +56,24 @@ class RegistrationApplicationController extends Controller
             'previous_school_address.required' => 'Alamat sekolah sebelumnya harus diisi.',
             'school_status.required' => 'Status sekolah harus dipilih.',
             'birth_certificate_filepath.required' => 'File akta kelahiran harus diunggah.',
+            'birth_certificate_filepath.max' => 'Ukuran file akta kelahiran maksimal 15 MB.',
+            'birth_certificate_filepath.mimes' => 'File akta kelahiran harus berupa jpg, jpeg, png, atau pdf.',
             'family_card_filepath.required' => 'File kartu keluarga harus diunggah.',
+            'family_card_filepath.max' => 'Ukuran file kartu keluarga maksimal 15 MB.',
+            'family_card_filepath.mimes' => 'File kartu keluarga harus berupa jpg, jpeg, png, atau pdf.',
             'report_card_filepath.required' => 'File rapor harus diunggah.',
-            'recent_photo_filepath.required' => 'File foto terbaru harus diunggah.'
+            'report_card_filepath.max' => 'Ukuran file rapor maksimal 15 MB.',
+            'report_card_filepath.mimes' => 'File rapor harus berupa jpg, jpeg, png, atau pdf.',
+            'recent_photo_filepath.required' => 'File foto terbaru harus diunggah.',
+            'recent_photo_filepath.max' => 'Ukuran file foto terbaru maksimal 15 MB.',
+            'recent_photo_filepath.mimes' => 'File foto terbaru harus berupa jpg atau jpeg.',
+            'achievement_certificate_filepath.max' => 'Ukuran file sertifikat prestasi maksimal 15 MB.',
+            'achievement_certificate_filepath.mimes' => 'File sertifikat prestasi harus berupa jpg, jpeg, png, atau pdf.',
+            'domicile_certificate_filepath.max' => 'Ukuran file surat keterangan domisili maksimal 15 MB.',
+            'domicile_certificate_filepath.mimes' => 'File surat keterangan domisili harus berupa jpg, jpeg, png, atau pdf.',
+            'proof_of_payment_filepath.required' => 'File bukti pembayaran harus diunggah.',
+            'proof_of_payment_filepath.max' => 'Ukuran file bukti pembayaran maksimal 15 MB.',
+            'proof_of_payment_filepath.mimes' => 'File bukti pembayaran harus berupa jpg, jpeg, png, atau pdf.',
         ]);
 
         try {
@@ -65,6 +81,7 @@ class RegistrationApplicationController extends Controller
             $validatedData['family_card_filepath'] = $request->file('family_card_filepath')->store('uploads/family_cards', 'public');
             $validatedData['report_card_filepath'] = $request->file('report_card_filepath')->store('uploads/report_cards', 'public');
             $validatedData['recent_photo_filepath'] = $request->file('recent_photo_filepath')->store('uploads/recent_photos', 'public');
+            $validatedData['proof_of_payment_filepath'] = $request->file('proof_of_payment_filepath')->store('uploads/proof_of_payments', 'public');
 
             if ($request->hasFile('achievement_certificate_filepath')) {
                 $validatedData['achievement_certificate_filepath'] = $request->file('achievement_certificate_filepath')->store('uploads/achievement_certificates', 'public');

@@ -12,7 +12,9 @@
                 <div class="col-12 col-lg-4 d-none d-lg-block">
                     <div class="position-sticky" style="top: 150px;">
                         <div class="info-container d-flex flex-column align-items-center justify-content-center">
-                            <div class="info-item d-flex aos-init aos-animate" role="button" data-aos="fade-up" data-aos-delay="200" onclick="document.getElementById('personal-information').scrollIntoView({ behavior: 'smooth' });">
+                            <div class="info-item d-flex aos-init aos-animate" role="button" data-aos="fade-up"
+                                data-aos-delay="200"
+                                onclick="document.getElementById('personal-information').scrollIntoView({ behavior: 'smooth' });">
                                 <i class="bi bi-person flex-shrink-0"></i>
                                 <div>
                                     <h3>Informasi Pribadi</h3>
@@ -20,7 +22,9 @@
                                 </div>
                             </div>
 
-                            <div class="info-item d-flex aos-init aos-animate" role="button" data-aos="fade-up" data-aos-delay="300" onclick="document.getElementById('parent-information').scrollIntoView({ behavior: 'smooth' });">
+                            <div class="info-item d-flex aos-init aos-animate" role="button" data-aos="fade-up"
+                                data-aos-delay="300"
+                                onclick="document.getElementById('parent-information').scrollIntoView({ behavior: 'smooth' });">
                                 <i class="bi bi-people flex-shrink-0"></i>
                                 <div>
                                     <h3>Informasi Orang Tua</h3>
@@ -28,7 +32,9 @@
                                 </div>
                             </div>
 
-                            <div class="info-item d-flex aos-init aos-animate" role="button" data-aos="fade-up" data-aos-delay="400" onclick="document.getElementById('previous-school-information').scrollIntoView({ behavior: 'smooth' });">
+                            <div class="info-item d-flex aos-init aos-animate" role="button" data-aos="fade-up"
+                                data-aos-delay="400"
+                                onclick="document.getElementById('previous-school-information').scrollIntoView({ behavior: 'smooth' });">
                                 <i class="bi bi-building flex-shrink-0"></i>
                                 <div>
                                     <h3>Sekolah Asal</h3>
@@ -36,7 +42,9 @@
                                 </div>
                             </div>
 
-                            <div class="info-item d-flex aos-init aos-animate" role="button" data-aos="fade-up" data-aos-delay="500" onclick="document.getElementById('documents').scrollIntoView({ behavior: 'smooth' });">
+                            <div class="info-item d-flex aos-init aos-animate" role="button" data-aos="fade-up"
+                                data-aos-delay="500"
+                                onclick="document.getElementById('documents').scrollIntoView({ behavior: 'smooth' });">
                                 <i class="bi bi-file-earmark flex-shrink-0"></i>
                                 <div>
                                     <h3>Dokumen</h3>
@@ -47,20 +55,20 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-8">
-                    <div class="d-flex align-items-center p-3 mb-3" style="border: 1px solid var(--accent-color);">
-                        <span class="text-danger me-2">*</span> <small>Wajib diisi</small>
-                    </div>
-
-                    <!-- Personal Information Card -->
-                    <div class="card mb-4" id="personal-information">
-                        <div class="card-header d-flex align-items-center">
-                            <i class="bi bi-person text-white me-2"></i>
-                            <h5 class="mb-0">Informasi Pribadi</h5>
+                    <form action="{{ route('registration.store', ['slug' => request()->slug]) }}" method="POST"
+                        enctype="multipart/form-data">
+                        @csrf
+                        <div class="d-flex align-items-center p-3 mb-3" style="border: 1px solid var(--accent-color);">
+                            <span class="text-danger me-2">*</span> <small>Wajib diisi</small>
                         </div>
-                        <div class="card-body">
-                            <form action="{{ route('registration.store', ['slug' => request()->slug]) }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
+
+                        <!-- Personal Information Card -->
+                        <div class="card mb-4" id="personal-information">
+                            <div class="card-header d-flex align-items-center">
+                                <i class="bi bi-person text-white me-2"></i>
+                                <h5 class="mb-0">Informasi Pribadi</h5>
+                            </div>
+                            <div class="card-body">
                                 <div class="row gy-4">
                                     <div class="col-12">
                                         <label for="full_name" class="form-label">Nama Lengkap <span
@@ -117,17 +125,20 @@
                                                 class="text-danger">*</span></label>
                                         <select id="religion" name="religion" class="form-control" required>
                                             <option value="" disabled selected>Pilih Agama</option>
-                                            <option value="Islam" {{ old('religion') == 'Islam' ? 'selected' : '' }}>Islam
+                                            <option value="Islam" {{ old('religion') == 'Islam' ? 'selected' : '' }}>
+                                                Islam
                                             </option>
                                             <option value="Kristen" {{ old('religion') == 'Kristen' ? 'selected' : '' }}>
                                                 Kristen</option>
                                             <option value="Katolik" {{ old('religion') == 'Katolik' ? 'selected' : '' }}>
                                                 Katolik</option>
-                                            <option value="Hindu" {{ old('religion') == 'Hindu' ? 'selected' : '' }}>Hindu
+                                            <option value="Hindu" {{ old('religion') == 'Hindu' ? 'selected' : '' }}>
+                                                Hindu
                                             </option>
                                             <option value="Buddha" {{ old('religion') == 'Buddha' ? 'selected' : '' }}>
                                                 Buddha</option>
-                                            <option value="Konghucu" {{ old('religion') == 'Konghucu' ? 'selected' : '' }}>
+                                            <option value="Konghucu"
+                                                {{ old('religion') == 'Konghucu' ? 'selected' : '' }}>
                                                 Konghucu</option>
                                         </select>
                                         @error('religion')
@@ -160,20 +171,16 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Parent Information Card -->
-                    <div class="card mb-4" id="parent-information">
-                        <div class="card-header d-flex align-items-center">
-                            <i class="bi bi-people text-white me-2"></i>
-                            <h5>Informasi Orang Tua</h5>
-                        </div>
-                        <div class="card-body">
-                            <form action="{{ route('registration.store', ['slug' => request()->slug]) }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
+                        <!-- Parent Information Card -->
+                        <div class="card mb-4" id="parent-information">
+                            <div class="card-header d-flex align-items-center">
+                                <i class="bi bi-people text-white me-2"></i>
+                                <h5>Informasi Orang Tua</h5>
+                            </div>
+                            <div class="card-body">
                                 <div class="row gy-4">
                                     <div class="col-12">
                                         <label for="father_name" class="form-label">Nama Ayah <span
@@ -277,15 +284,20 @@
                                             (Opsional)</label>
                                         <select id="parents_income" name="parents_income" class="form-control">
                                             <option value="" disabled selected>Pilih Penghasilan</option>
-                                            <option value="< Rp 1.000.000" {{ old('parents_income') == '< Rp 1.000.000' ? 'selected' : '' }}>
+                                            <option value="< Rp 1.000.000"
+                                                {{ old('parents_income') == '< Rp 1.000.000' ? 'selected' : '' }}>
                                                 < Rp 1.000.000</option>
-                                            <option value="Rp 1.000.000 - Rp 3.000.000" {{ old('parents_income') == 'Rp 1.000.000 - Rp 3.000.000' ? 'selected' : '' }}>
+                                            <option value="Rp 1.000.000 - Rp 3.000.000"
+                                                {{ old('parents_income') == 'Rp 1.000.000 - Rp 3.000.000' ? 'selected' : '' }}>
                                                 Rp 1.000.000 - Rp 3.000.000</option>
-                                            <option value="Rp 3.000.000 - Rp 5.000.000" {{ old('parents_income') == 'Rp 3.000.000 - Rp 5.000.000' ? 'selected' : '' }}>
+                                            <option value="Rp 3.000.000 - Rp 5.000.000"
+                                                {{ old('parents_income') == 'Rp 3.000.000 - Rp 5.000.000' ? 'selected' : '' }}>
                                                 Rp 3.000.000 - Rp 5.000.000</option>
-                                            <option value="Rp 5.000.000 - Rp 10.000.000" {{ old('parents_income') == 'Rp 5.000.000 - Rp 10.000.000' ? 'selected' : '' }}>
+                                            <option value="Rp 5.000.000 - Rp 10.000.000"
+                                                {{ old('parents_income') == 'Rp 5.000.000 - Rp 10.000.000' ? 'selected' : '' }}>
                                                 Rp 5.000.000 - Rp 10.000.000</option>
-                                            <option value="> Rp 10.000.000" {{ old('parents_income') == '> Rp 10.000.000' ? 'selected' : '' }}>
+                                            <option value="> Rp 10.000.000"
+                                                {{ old('parents_income') == '> Rp 10.000.000' ? 'selected' : '' }}>
                                                 > Rp 10.000.000</option>
                                         </select>
                                         @error('parents_income')
@@ -293,20 +305,16 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Previous School Information Card -->
-                    <div class="card mb-4" id="previous-school-information">
-                        <div class="card-header d-flex align-items-center">
-                            <i class="bi bi-building text-white me-2"></i>
-                            <h5>Informasi Sekolah Asal</h5>
-                        </div>
-                        <div class="card-body">
-                            <form action="{{ route('registration.store', ['slug' => request()->slug]) }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
+                        <!-- Previous School Information Card -->
+                        <div class="card mb-4" id="previous-school-information">
+                            <div class="card-header d-flex align-items-center">
+                                <i class="bi bi-building text-white me-2"></i>
+                                <h5>Informasi Sekolah Asal</h5>
+                            </div>
+                            <div class="card-body">
                                 <div class="row gy-4">
                                     <div class="col-12">
                                         <label for="previous_school_name" class="form-label">Nama Sekolah Asal <span
@@ -358,26 +366,22 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Documents Card -->
-                    <div class="card mb-4" id="documents">
-                        <div class="card-header d-flex align-items-center">
-                            <i class="bi bi-file-earmark text-white me-2"></i>
-                            <h5>Dokumen</h5>
-                        </div>
-                        <div class="card-body">
-                            <form action="{{ route('registration.store', ['slug' => request()->slug]) }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
+                        <!-- Documents Card -->
+                        <div class="card mb-4" id="documents">
+                            <div class="card-header d-flex align-items-center">
+                                <i class="bi bi-file-earmark text-white me-2"></i>
+                                <h5>Dokumen</h5>
+                            </div>
+                            <div class="card-body">
                                 <div class="row gy-4">
                                     <div class="col-12">
                                         <label for="birth_certificate_filepath" class="form-label">Scan Akta Kelahiran
                                             <span class="text-danger">*</span></label>
                                         <input type="file" id="birth_certificate_filepath"
-                                            name="birth_certificate_filepath" class="form-control" required>
+                                            name="birth_certificate_filepath" class="form-control" accept=".jpg,.jpeg,.png,.pdf" required>
                                         @error('birth_certificate_filepath')
                                             <div class="text-danger mt-1">{{ $message }}</div>
                                         @enderror
@@ -386,7 +390,7 @@
                                         <label for="family_card_filepath" class="form-label">Scan Kartu Keluarga (KK)
                                             <span class="text-danger">*</span></label>
                                         <input type="file" id="family_card_filepath" name="family_card_filepath"
-                                            class="form-control" required>
+                                            class="form-control" accept=".jpg,.jpeg,.png,.pdf" required>
                                         @error('family_card_filepath')
                                             <div class="text-danger mt-1">{{ $message }}</div>
                                         @enderror
@@ -395,7 +399,7 @@
                                         <label for="report_card_filepath" class="form-label">Scan Rapor (Semester
                                             Tertentu) <span class="text-danger">*</span></label>
                                         <input type="file" id="report_card_filepath" name="report_card_filepath"
-                                            class="form-control" required>
+                                            class="form-control" accept=".jpg,.jpeg,.png,.pdf" required>
                                         @error('report_card_filepath')
                                             <div class="text-danger mt-1">{{ $message }}</div>
                                         @enderror
@@ -404,7 +408,7 @@
                                         <label for="recent_photo_filepath" class="form-label">Pas Foto Terbaru <span
                                                 class="text-danger">*</span></label>
                                         <input type="file" id="recent_photo_filepath" name="recent_photo_filepath"
-                                            class="form-control" required>
+                                            class="form-control" accept=".jpg,.jpeg,.png,.pdf" required>
                                         @error('recent_photo_filepath')
                                             <div class="text-danger mt-1">{{ $message }}</div>
                                         @enderror
@@ -413,7 +417,7 @@
                                         <label for="achievement_certificate_filepath" class="form-label">Sertifikat
                                             Prestasi (Opsional)</label>
                                         <input type="file" id="achievement_certificate_filepath"
-                                            name="achievement_certificate_filepath" class="form-control">
+                                            name="achievement_certificate_filepath" class="form-control" accept=".jpg,.jpeg,.png,.pdf">
                                         @error('achievement_certificate_filepath')
                                             <div class="text-danger mt-1">{{ $message }}</div>
                                         @enderror
@@ -422,19 +426,40 @@
                                         <label for="domicile_certificate_filepath" class="form-label">Surat Keterangan
                                             Domisili (Opsional)</label>
                                         <input type="file" id="domicile_certificate_filepath"
-                                            name="domicile_certificate_filepath" class="form-control">
+                                            name="domicile_certificate_filepath" class="form-control" accept=".jpg,.jpeg,.png,.pdf">
                                         @error('domicile_certificate_filepath')
                                             <div class="text-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Daftar</button>
-                    </div>
+                        <!-- Payment Card -->
+                        <div class="card mb-4" id="documents">
+                            <div class="card-header d-flex align-items-center">
+                                <i class="bi bi-file-earmark text-white me-2"></i>
+                                <h5>Pembayaran</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row gy-4">
+                                    <div class="col-12">
+                                        <label for="proof_of_payment_filepath" class="form-label">Bukti Pembayaran
+                                            <span class="text-danger">*</span></label>
+                                        <input type="file" id="proof_of_payment_filepath"
+                                            name="proof_of_payment_filepath" class="form-control" accept=".jpg,.jpeg,.png,.pdf" required>
+                                        @error('proof_of_payment_filepath')
+                                            <div class="text-danger mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Daftar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

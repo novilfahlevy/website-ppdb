@@ -35,6 +35,7 @@ class RegistrationApplication extends Model
         'recent_photo_filepath',
         'achievement_certificate_filepath',
         'domicile_certificate_filepath',
+        'proof_of_payment_filepath',
     ];
 
     protected $casts = [
