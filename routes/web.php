@@ -4,6 +4,7 @@ use App\Http\Controllers\ArchivedRegistrationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationApplicationController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\UserController;
@@ -50,4 +51,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/registrations/{id}/applications', [RegistrationController::class, 'showApplication'])->name('registrations.application');
 
     Route::get('/archived-registrations', [ArchivedRegistrationController::class, 'index'])->name('registrations.archived.index');
+
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
 });
