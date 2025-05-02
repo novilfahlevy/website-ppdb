@@ -30,6 +30,17 @@
                                 </div>
                             @enderror
                         </div>
+                        
+                        <div class="form-group">
+                            <input type="password" class="form-control form-control-user" name="old_password" id="exampleInputOldPassword"
+                                placeholder="Masukan password lama">
+                            @error('old_password')
+                                <div class="text-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        
                         <div class="form-group">
                             <input type="password" class="form-control form-control-user" name="password" id="exampleInputPassword"
                                 placeholder="Masukan password baru (opsional)">
