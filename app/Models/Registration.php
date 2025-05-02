@@ -34,6 +34,11 @@ class Registration extends Model
             $registration->slug = Str::slug($registration->name);
         });
     }
+
+    public function scopeOpen(Builder $query)
+    {
+        return $query->where('is_open', true);
+    }
     
     public function scopeUnarchived(Builder $query)
     {
