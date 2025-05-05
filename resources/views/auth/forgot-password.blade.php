@@ -2,14 +2,13 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{{ config('app.name') }}</title>
+    <title>Lupa Password</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -19,64 +18,51 @@
 
     <!-- Custom styles for this template-->
     @vite(['resources/css/sb-admin-2.min.css', 'resources/js/sb-admin-2.min.js'])
-
 </head>
 
 <body class="bg-gradient-primary">
-
     <div class="container">
-
         <!-- Outer Row -->
         <div class="row justify-content-center">
-
             <div class="col-xl-6 col-lg-10 col-md-6">
-
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4 bg-primary rounded py-3">
-                                    <img src="{{ asset('assets/logo.png') }}" alt="Logo">
-                                </h1>
+                                <h1 class="h4 text-gray-900 mb-2">Lupa Password?</h1>
+                                <p class="mb-4">Masukkan alamat email Anda di bawah ini, dan kami akan mengirimkan tautan untuk mengatur ulang password Anda!</p>
                             </div>
-                            <form action="{{ route('login.handle') }}" method="POST" class="user">
+                            
+                            @if (session('status'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
+                            
+                            <form action="{{ route('password.email') }}" method="POST" class="user">
                                 @csrf
-                                
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" name="email" id="exampleInputEmail"
-                                        aria-describedby="emailHelp" placeholder="Masukan email" value="{{ old('email') }}">
+                                    <input type="email" class="form-control form-control-user" name="email" id="email"
+                                        aria-describedby="emailHelp" placeholder="Masukan alamat email" value="{{ old('email') }}">
                                     @error('email')
                                         <div class="text-danger mt-2">
                                             {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control form-control-user" name="password"
-                                        id="exampleInputPassword" placeholder="Masukan password">
-                                </div>
-                                <div class="form-group">
-                                    <div class="custom-control custom-checkbox small">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                                        <label class="custom-control-label" for="customCheck">Ingat Saya</label>
-                                    </div>
-                                </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
-                                    Masuk
+                                    Kirim Link ke Email Saya
                                 </button>
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="{{ route('password.request') }}">Lupa Password?</a>
+                                <a class="small" href="{{ route('login') }}">Kembali ke Login</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
     <!-- Bootstrap core JavaScript-->
@@ -85,7 +71,5 @@
 
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
 </body>
-
 </html>

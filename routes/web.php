@@ -2,13 +2,20 @@
 
 use App\Http\Controllers\ArchivedRegistrationController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationApplicationController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\UserController;
+use App\Models\User;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/pendaftaran/{slug}', [HomeController::class, 'registration'])->name('registration');
@@ -54,4 +61,15 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
+});
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'login'])->name('login.handle');
+
+    // Password Reset Routes
+    Route::get('/lupa-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+    Route::post('/lupa-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+    Route::get('/tetapkan-ulang-password/{token}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset');
+    Route::post('/tetapkan-ulang-password', [ForgotPasswordController::class, 'reset'])->name('password.update');
 });
