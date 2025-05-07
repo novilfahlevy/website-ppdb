@@ -48,4 +48,427 @@
             </div>
         </div>
     </section>
+
+    <!-- Persyaratan Section -->
+    <section id="persyaratan" class="light-background">
+        <div class="container position-relative">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Syarat Pendaftaran</h2>
+                <p>Persyaratan yang harus dipenuhi untuk pendaftaran</p>
+            </div>
+
+            <div class="row justify-content-center gy-4 mb-5">
+                <div class="col-lg-6">
+                    <div class="card shadow h-100">
+                        <div class="card-header">
+                            <h5 class="m-0 font-weight-bold">Siswa Baru</h5>
+                        </div>
+                        <div class="card-body">
+                            <ol class="ps-3">
+                                <li class="mb-2">Belum Menikah</li>
+                                <li class="mb-2">Usia Kurang dari 21 tahun</li>
+                                <li class="mb-2">Foto rapor / Surat Keterangan Lulus / Ijazah</li>
+                                <li class="mb-2">Foto Akte</li>
+                                <li class="mb-2">Foto KK</li>
+                                <li class="mb-2">Foto Siswa</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card shadow h-100">
+                        <div class="card-header">
+                            <h5 class="m-0 font-weight-bold">Siswa Mutasi / Pindahan</h5>
+                        </div>
+                        <div class="card-body">
+                            <ol class="ps-3">
+                                <li class="mb-2">Belum Menikah</li>
+                                <li class="mb-2">Surat Pindah dari sekolah Asal</li>
+                                <li class="mb-2">Surat Kelakuan Baik</li>
+                                <li class="mb-2">Surat Rekomendasi dari Balaidikmen asal (Bila dari DIY)</li>
+                                <li class="mb-2">Surat rekomendasi dari Dinas Pendidikan Sekolah Asal (Bila dari luar Propinsi)</li>
+                                <li class="mb-2">Surat Keterangan Bebas Narkoba</li>
+                                <li class="mb-2">Fotokopi Ijazah dan SKHUN SMP</li>
+                                <li class="mb-2">Fotokopi Rapor Terakhir</li>
+                                <li class="mb-2">Fotokopi C1/KK, Perwalian</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dokumen Persyaratan -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card shadow">
+                        <div class="card-header text-primary">
+                            <h5 class="m-0 font-weight-bold">Dokumen Persyaratan</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Berikut adalah dokumen-dokumen yang perlu disiapkan dalam format digital (PDF/JPG) untuk diunggah saat pendaftaran:</p>
+                            
+                            <div class="row g-4">
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="icon-box-sm text-primary me-3">
+                                                    <i class="bi bi-file-earmark-text"></i>
+                                                </div>
+                                                <h5 class="mb-0">Akta Kelahiran</h5>
+                                            </div>
+                                            <p class="text-muted small">Scan/foto Akta Kelahiran asli dengan format PDF/JPG, ukuran maks. 5MB.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="icon-box-sm text-primary me-3">
+                                                    <i class="bi bi-file-earmark-text"></i>
+                                                </div>
+                                                <h5 class="mb-0">Kartu Keluarga</h5>
+                                            </div>
+                                            <p class="text-muted small">Scan/foto Kartu Keluarga asli dengan format PDF/JPG, ukuran maks. 5MB.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="icon-box-sm text-primary me-3">
+                                                    <i class="bi bi-file-earmark-text"></i>
+                                                </div>
+                                                <h5 class="mb-0">Rapor</h5>
+                                            </div>
+                                            <p class="text-muted small">Scan/foto Rapor (halaman nilai dan identitas) dengan format PDF, ukuran maks. 5MB.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="icon-box-sm text-primary me-3">
+                                                    <i class="bi bi-person-badge"></i>
+                                                </div>
+                                                <h5 class="mb-0">Pas Foto</h5>
+                                            </div>
+                                            <p class="text-muted small">Pas foto terbaru ukuran 3x4 dengan latar belakang biru/merah, format JPG, ukuran maks. 1MB.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="icon-box-sm text-primary me-3">
+                                                    <i class="bi bi-trophy"></i>
+                                                </div>
+                                                <h5 class="mb-0">Sertifikat Prestasi</h5>
+                                            </div>
+                                            <p class="text-muted small">Scan/foto Sertifikat Prestasi (jika ada) dengan format PDF/JPG, ukuran maks. 5MB.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="icon-box-sm text-primary me-3">
+                                                    <i class="bi bi-geo-alt"></i>
+                                                </div>
+                                                <h5 class="mb-0">Surat Keterangan Domisili</h5>
+                                            </div>
+                                            <p class="text-muted small">Scan/foto Surat Keterangan Domisili (jika alamat berbeda dengan KK) dengan format PDF, ukuran maks. 5MB.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="icon-box-sm text-primary me-3">
+                                                    <i class="bi bi-cash"></i>
+                                                </div>
+                                                <h5 class="mb-0">Bukti Pembayaran</h5>
+                                            </div>
+                                            <p class="text-muted small">Scan/foto bukti pembayaran pendaftaran dengan format PDF/JPG, ukuran maks. 5MB.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="icon-box-sm text-primary me-3">
+                                                    <i class="bi bi-person-vcard"></i>
+                                                </div>
+                                                <h5 class="mb-0">Dokumen Penunjang</h5>
+                                            </div>
+                                            <p class="text-muted small">Dokumen tambahan sesuai persyaratan jalur pendaftaran dengan format PDF, ukuran maks. 5MB.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Catatan Penting -->
+            {{-- <div class="row">
+                <div class="col-12">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto pe-3">
+                                    <i class="bi bi-exclamation-triangle-fill text-warning fs-1"></i>
+                                </div>
+                                <div class="col">
+                                    <div class="font-weight-bold text-warning text-uppercase mb-1">Catatan Penting:</div>
+                                    <ul class="mb-0">
+                                        <li>Pastikan semua dokumen yang diunggah jelas dan dapat dibaca.</li>
+                                        <li>Dokumen yang tidak lengkap dapat menyebabkan proses pendaftaran tertunda.</li>
+                                        <li>Siapkan dokumen asli untuk dibawa saat verifikasi berkas.</li>
+                                        <li>Format file yang diterima: PDF, JPG, atau PNG.</li>
+                                        <li>Ukuran maksimal tiap file adalah 5MB.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+        </div>
+    </section>
+    <!-- /Persyaratan Section -->
+
+    <!-- Biaya Pendidikan Section -->
+    <section id="biaya-pendidikan">
+        <div class="container position-relative">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Biaya Pendidikan</h2>
+                <p>Rincian biaya pendidikan yang perlu disiapkan</p>
+            </div>
+
+            <div class="row justify-content-center gy-4">
+                <!-- Sumbangan Fasilitas Pendidikan Card -->
+                <div class="col-lg-4 mb-4">
+                    <div class="card shadow h-100">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="m-0 font-weight-bold">
+                                <i class="bi bi-building me-2"></i>
+                                Sumbangan Fasilitas Pendidikan
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Pilihan 1</span>
+                                    <span class="badge bg-primary rounded-pill">Rp 1.000.000</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Pilihan 2</span>
+                                    <span class="badge bg-primary rounded-pill">Rp 2.000.000</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Pilihan 3</span>
+                                    <span class="badge bg-primary rounded-pill">Rp 3.000.000</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Pilihan 4</span>
+                                    <span class="badge bg-primary rounded-pill">Rp 4.000.000</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Pilihan 5</span>
+                                    <span class="badge bg-primary rounded-pill">Rp 5.000.000</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center fst-italic">
+                                    <span>Atau sesuai kemampuan orang tua/wali</span>
+                                </li>
+                            </ul>
+                            <div class="alert alert-info mb-0">
+                                <i class="bi bi-info-circle me-2"></i>
+                                Pembayaran dapat diangsur selama 3 tahun
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DPP Card -->
+                <div class="col-lg-4 mb-4">
+                    <div class="card shadow h-100">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="m-0 font-weight-bold">
+                                <i class="bi bi-cash-stack me-2"></i>
+                                Dana Pengembangan Pendidikan (DPP)
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <h1 class="display-6 fw-bold text-primary">Rp 4.000.000</h1>
+                            </div>
+                            
+                            <p class="fw-bold mb-2">Rincian DPP:</p>
+                            <ul class="mb-4">
+                                <li>Seragam Olahraga</li>
+                                <li>Atribut dan kartu pelajar</li>
+                                <li>Asuransi dan psikotest</li>
+                                <li>Pendampingan siswa</li>
+                                <li>Buku rapor</li>
+                                <li>Outing class</li>
+                                <li>Tes & ujian</li>
+                                <li>Kegiatan kesiswaan</li>
+                                <li>Kerohanian</li>
+                                <li>Ekstrakurikuler</li>
+                            </ul>
+                            
+                            <div class="alert alert-info mb-0">
+                                <i class="bi bi-info-circle me-2"></i>
+                                Pembayaran dapat diangsur selama 3 tahun
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SPP Card -->
+                <div class="col-lg-4 mb-4">
+                    <div class="card shadow h-100">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="m-0 font-weight-bold">
+                                <i class="bi bi-calendar-check me-2"></i>
+                                Sumbangan Pembinaan Pendidikan (SPP)
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <h1 class="display-6 fw-bold text-primary">Rp 400.000</h1>
+                                <p class="text-muted">per bulan</p>
+                            </div>
+                            
+                            <div class="alert alert-warning mb-3">
+                                <i class="bi bi-exclamation-triangle me-2"></i>
+                                Pembayaran SPP dilakukan sebelum tanggal 15 setiap bulannya
+                            </div>
+                            
+                            <div class="alert alert-secondary mb-0">
+                                <i class="bi bi-person-heart me-2"></i>
+                                <strong>Keringanan biaya</strong> dapat diberikan setelah wawancara dan membawa surat keterangan tidak mampu dari kelurahan
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Payment Methods -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card shadow">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="m-0 font-weight-bold">
+                                <i class="bi bi-credit-card me-2"></i>
+                                Metode Pembayaran
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <h5>Pembayaran dapat dilakukan melalui:</h5>
+                                    <ul>
+                                        <li>Transfer bank ke rekening sekolah</li>
+                                        <li>Pembayaran langsung di loket administrasi sekolah</li>
+                                        <li>Aplikasi pembayaran online yang telah bekerja sama dengan sekolah</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-center">
+                                        <p class="fw-bold mb-1">Untuk informasi lebih lanjut, hubungi:</p>
+                                        <p class="mb-1"><i class="bi bi-telephone me-2"></i> (0274) 123456</p>
+                                        <p class="mb-1"><i class="bi bi-envelope me-2"></i> keuangan@sekolah.ac.id</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Biaya Pendidikan Section -->
+
+    <!-- Narahubung Section -->
+    <section id="narahubung" class="light-background">
+        <div class="container position-relative">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Hubungi kami untuk informasi lebih lanjut</h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card shadow border-0">
+                        <div class="card-body p-0">
+                            <div class="row g-0">
+                                <!-- Left Image Section -->
+                                <div class="col-lg-5 d-none d-lg-block">
+                                    <img src="{{ asset('assets/cp.png') }}" class="img-fluid rounded-start h-100" 
+                                         alt="Support Contact" style="object-fit: cover; object-position: center;">
+                                </div>
+                                
+                                <!-- Right Contact Information Section -->
+                                <div class="col-lg-7 p-5">
+                                    <h2 class="mb-4 fw-bold">Hubungi Tim Pendaftaran</h2>
+                                    
+                                    <!-- Nana - WhatsApp Contact -->
+                                    <div class="d-flex align-items-center mb-4 pb-3">
+                                        <div class="me-4">
+                                            <div class="d-flex justify-content-center align-items-center rounded-circle bg-primary text-white"
+                                                 style="width: 50px; height: 50px;">
+                                                <i class="bi bi-person-fill fs-4"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold mb-2">Nana</h5>
+                                            <p class="mb-0 d-flex align-items-center">
+                                                <i class="bi bi-whatsapp text-success me-2 fs-5"></i>
+                                                <span class="fs-5">0812 1270 3059</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- IMKA - Phone Contact -->
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-4">
+                                            <div class="d-flex justify-content-center align-items-center rounded-circle bg-primary text-white"
+                                                 style="width: 50px; height: 50px;">
+                                                <i class="bi bi-building fs-4"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold mb-2">IMKA</h5>
+                                            <p class="mb-0 d-flex align-items-center">
+                                                <i class="bi bi-telephone-fill text-primary me-2 fs-5"></i>
+                                                <span class="fs-5">0274 4469287</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Narahubung Section -->
 @endsection

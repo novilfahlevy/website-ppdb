@@ -73,11 +73,21 @@
                                 Pendaftaran
                             </a>
                         </li>
-                        {{-- <li>
+                        <li>
                             <a href="{{ request()->routeIs('home') ? '#persyaratan' : route('home') . '#persyaratan' }}">
                                 Persyaratan
                             </a>
-                        </li> --}}
+                        </li>
+                        <li>
+                            <a href="{{ request()->routeIs('home') ? '#biaya-pendidikan' : route('home') . '#biaya-pendidikan' }}">
+                                Biaya Pendidikan
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ request()->routeIs('home') ? '#narahubung' : route('home') . '#narahubung' }}">
+                                Narahubung
+                            </a>
+                        </li>
                     </ul>
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                 </nav>
