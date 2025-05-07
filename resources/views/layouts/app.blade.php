@@ -104,76 +104,56 @@
 
     </main>
 
-    <footer id="footer" class="footer accent-background">
-
-        <div class="container footer-top">
-            <div class="row gy-4">
-                <div class="col-lg-5 col-md-12 footer-about">
-                    <a href="index.html" class="logo d-flex align-items-center">
-                        <span class="sitename">PPDB</span>
-                    </a>
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
-                        valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-                    <div class="social-links d-flex mt-4">
-                        <a href=""><i class="bi bi-twitter-x"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
+    <footer id="footer" class="footer" style="background-color: #0c1559; padding: 40px 0 20px;">
+        <div class="container">
+            <div class="row gy-4 align-items-center">
+                <!-- Left column with HOME and social media icons -->
+                <div class="col-lg-5 col-md-6">
+                    <h2 class="text-white fw-bold mb-4" style="font-size: 28px;">HOME</h2>
+                    
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="#" class="social-icon" style="background-color: #E1306C; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                            <i class="bi bi-instagram text-white"></i>
+                        </a>
+                        <a href="#" class="social-icon" style="background-color: #1877F2; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                            <i class="bi bi-facebook text-white"></i>
+                        </a>
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-6 footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
-                    </ul>
+                <!-- Right column with contact information -->
+                <div class="col-lg-7 col-md-6 text-lg-end">
+                    <div class="contact-info">
+                        <p class="mb-2 d-flex justify-content-lg-end align-items-center">
+                            <span class="text-warning me-3" style="width: 60px; text-align: right;">email</span>
+                            <span class="text-white">smaimmanuelkalasan@gmail.com</span>
+                        </p>
+                        <p class="mb-2 d-flex justify-content-lg-end align-items-center">
+                            <span class="text-warning me-3" style="width: 60px; text-align: right;">telpon</span>
+                            <span class="text-white">0274 4469287</span>
+                        </p>
+                        <p class="mb-2 d-flex justify-content-lg-end align-items-center">
+                            <span class="text-warning me-3" style="width: 60px; text-align: right;">Web</span>
+                            <span class="text-white">www.smaimmanuelkalasan.sch.id</span>
+                        </p>
+                        <p class="mb-2 d-flex justify-content-lg-end align-items-center">
+                            <span class="text-warning me-3" style="width: 60px; text-align: right;">Blog</span>
+                            <span class="text-white">www.smaimmanuelkalasan-yogyakarta.blogspot.com</span>
+                        </p>
+                    </div>
                 </div>
-
-                <div class="col-lg-2 col-6 footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Product Management</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Graphic Design</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                    <h4>Contact Us</h4>
-                    <p>A108 Adam Street</p>
-                    <p>New York, NY 535022</p>
-                    <p>United States</p>
-                    <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                    <p><strong>Email:</strong> <span>info@example.com</span></p>
-                </div>
-
+            </div>
+            
+            <div class="text-center text-white mt-5 pt-3" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                <p class="mb-0">© Sma Immanuel Kalasan Jogja</p>
             </div>
         </div>
-
-        <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">Impact</strong> <span>All Rights Reserved</span>
-            </p>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you've purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a
-                    href="https://themewagon.com">ThemeWagon</a>
-            </div>
-        </div>
-
     </footer>
 
     <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center shadow">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
 
     <!-- Preloader -->
     <div id="preloader"></div>
