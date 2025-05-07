@@ -30,7 +30,13 @@
                                 <td>{{ $registration->academic_year ?: '-' }}</td>
                                 <td>{{ $registration->start_date->translatedFormat('l, d F Y') }}</td>
                                 <td>{{ $registration->end_date->translatedFormat('l, d F Y') }}</td>
-                                <td>{{ $registration->is_open ? 'Dibuka' : 'Selesai' }}</td>
+                                <td>
+                                    @if ($registration->is_open)
+                                        <span class="badge bg-success text-white">Dibuka</span>
+                                    @else
+                                        <span class="badge bg-danger text-white">Ditutup</span>
+                                    @endif
+                                </td>
                                 <td>{{ $registration->created_at->translatedFormat('l, d F Y H:i:s') }}</td>
                                 <td>
                                     <a href="{{ route('registrations.edit', ['id' => $registration->id]) }}"
