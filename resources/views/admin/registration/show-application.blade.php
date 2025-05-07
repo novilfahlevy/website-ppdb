@@ -13,6 +13,12 @@
             </ol>
         </nav>
 
+        <div class="d-flex justify-content-end mb-4">
+            <a href="{{ route('registrations.applications.edit', ['id' => $application->id]) }}" class="btn btn-primary">
+                <i class="fas fa-edit mr-2"></i>Edit Data
+            </a>
+        </div>
+
         <div class="row">
             <!-- Personal Information Card -->
             <div class="col-xl-6 col-lg-6 mb-4">

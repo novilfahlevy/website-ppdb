@@ -56,6 +56,8 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/registrations/{id}/archive', [RegistrationController::class, 'archive'])->name('registrations.archive');
     Route::put('/registrations/{id}/unarchive', [RegistrationController::class, 'unarchive'])->name('registrations.unarchive');
     Route::get('/registrations/{id}/applications', [RegistrationController::class, 'showApplication'])->name('registrations.application');
+    Route::get('/registrations/applications/{id}/edit', [RegistrationController::class, 'editApplication'])->name('registrations.applications.edit');
+    Route::put('/registrations/applications/{id}', [RegistrationController::class, 'updateApplication'])->name('registrations.applications.update');
 
     Route::get('/archived-registrations', [ArchivedRegistrationController::class, 'index'])->name('registrations.archived.index');
 
