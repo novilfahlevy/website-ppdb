@@ -22,7 +22,7 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #222222; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #172a28; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #008374; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #101e62; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -30,11 +30,11 @@
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #ffffff;  /* The default color of the main navmenu links */
-  --nav-hover-color: #008374; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-hover-color: #101e62; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #01433c; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #008374; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color: #101e62; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -53,11 +53,11 @@
 }
 
 .accent-background {
-  --background-color: #008374;
+  --background-color: #101e62;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   --accent-color: #ffffff;
-  --surface-color: #00b6a1;
+  --surface-color: #101e62;
   --contrast-color: #ffffff;
 }
 
@@ -231,7 +231,7 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #008374;
+  --background-color: var(--accent-color);
   --heading-color: #ffffff;
   color: var(--default-color);
   transition: all 0.5s;
@@ -890,7 +890,22 @@ section,
 .hero {
   width: 100%;
   position: relative;
-  padding: 140px 0 0 0;
+  padding: 200px 0 0 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 500px;
+}
+
+.hero:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .hero .container {
@@ -964,13 +979,13 @@ section,
   }
 }
 
-.hero .icon-boxes {
+.icon-boxes {
   padding-bottom: 60px;
   z-index: 4;
 }
 
 @media (min-width: 1200px) {
-  .hero .icon-boxes:before {
+  .icon-boxes:before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -982,11 +997,11 @@ section,
   }
 }
 
-.hero .icon-box {
+.icon-box {
   padding: 60px 30px;
   position: relative;
   overflow: hidden;
-  background: var(--background-color);
+  background: var(--accent-color);
   box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
   border-radius: 8px;
@@ -996,35 +1011,35 @@ section,
   text-align: center;
 }
 
-.hero .icon-box .title {
+.icon-box .title {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 24px;
 }
 
-.hero .icon-box .title a {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+.icon-box .title a {
+  color: color-mix(in srgb, var(--background-color), transparent 20%);
   transition: 0.3s;
 }
 
-.hero .icon-box .icon {
+.icon-box .icon {
   margin-bottom: 20px;
   padding-top: 10px;
   display: inline-block;
   transition: all 0.3s ease-in-out;
   font-size: 48px;
   line-height: 1;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: color-mix(in srgb, var(--background-color), transparent 20%);
 }
 
-.hero .icon-box:hover {
+/* .icon-box:hover {
   background-color: color-mix(in srgb, var(--background-color), white 10%);
 }
 
-.hero .icon-box:hover .title a,
-.hero .icon-box:hover .icon {
+.icon-box:hover .title a,
+.icon-box:hover .icon {
   color: var(--contrast-color);
-}
+} */
 
 /*--------------------------------------------------------------
 # About Section

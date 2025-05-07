@@ -9,7 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $registrations = Registration::unarchived()->get();
+        return view('index', compact('registrations'));
     }
 
     public function registration(string $slug)

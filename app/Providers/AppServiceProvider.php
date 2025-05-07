@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // Ambil data pendaftaran untuk ditampilkan di navbar
         view()->composer('layouts.app', function ($view) {
-            $registrations = Registration::open()->get();
+            $registrations = Registration::unarchived()->get();
             $view->with('registrations', $registrations);
         });
     }

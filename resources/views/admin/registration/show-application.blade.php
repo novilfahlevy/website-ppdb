@@ -48,6 +48,10 @@
                                 <td>: {{ $application->full_address }}</td>
                             </tr>
                             <tr>
+                                <td>Domisili Sekarang</td>
+                                <td>: {{ $application->current_domicile }}</td>
+                            </tr>
+                            <tr>
                                 <td>No. HP</td>
                                 <td>: {{ $application->personal_phone_number ?: '-' }}</td>
                             </tr>
@@ -82,7 +86,7 @@
                             </tr>
                             <tr>
                                 <td>Pekerjaan</td>
-                                <td>: {{ $application->parents_occupation }}</td>
+                                <td>: {{ $application->parents_occupation_other ?: $application->parents_occupation }}</td>
                             </tr>
                             <tr>
                                 <td>Penghasilan</td>
@@ -116,20 +120,12 @@
                                         <td>: {{ $application->previous_school_name }}</td>
                                     </tr>
                                     <tr>
-                                        <td>NPSN</td>
-                                        <td>: {{ $application->previous_school_npsn }}</td>
-                                    </tr>
-                                    <tr>
                                         <td>Status Sekolah</td>
                                         <td>: {{ $application->school_status }}</td>
                                     </tr>
                                     <tr>
                                         <td>Alamat Sekolah</td>
                                         <td>: {{ $application->previous_school_address }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>No. Peserta Ujian</td>
-                                        <td>: {{ $application->exam_participant_number ?: '-' }}</td>
                                     </tr>
                                 </table>
                             </div>
@@ -147,53 +143,54 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3 mb-3">
-                                <a href="{{ asset('storage/' . $application->birth_certificate_filepath) }}"
-                                    class="btn btn-primary w-100" target="_blank">
+                                <a href="{{ $application->birth_certificate_filepath ? asset('storage/' . $application->birth_certificate_filepath) : '#' }}"
+                                    class="btn btn-primary w-100 {{ $application->birth_certificate_filepath ? '' : 'disabled' }}"
+                                    target="{{ $application->birth_certificate_filepath ? '_blank' : '' }}">
                                     <i class="fas fa-file-pdf mr-2"></i> Akta Kelahiran
                                 </a>
                             </div>
                             <div class="col-md-3 mb-3">
-                                <a href="{{ asset('storage/' . $application->family_card_filepath) }}"
-                                    class="btn btn-primary w-100" target="_blank">
+                                <a href="{{ $application->family_card_filepath ? asset('storage/' . $application->family_card_filepath) : '#' }}"
+                                    class="btn btn-primary w-100 {{ $application->family_card_filepath ? '' : 'disabled' }}"
+                                    target="{{ $application->family_card_filepath ? '_blank' : '' }}">
                                     <i class="fas fa-file-pdf mr-2"></i> Kartu Keluarga
                                 </a>
                             </div>
                             <div class="col-md-3 mb-3">
-                                <a href="{{ asset('storage/' . $application->report_card_filepath) }}"
-                                    class="btn btn-primary w-100" target="_blank">
+                                <a href="{{ $application->report_card_filepath ? asset('storage/' . $application->report_card_filepath) : '#' }}"
+                                    class="btn btn-primary w-100 {{ $application->report_card_filepath ? '' : 'disabled' }}"
+                                    target="{{ $application->report_card_filepath ? '_blank' : '' }}">
                                     <i class="fas fa-file-pdf mr-2"></i> Rapor
                                 </a>
                             </div>
                             <div class="col-md-3 mb-3">
-                                <a href="{{ asset('storage/' . $application->recent_photo_filepath) }}"
-                                    class="btn btn-primary w-100" target="_blank">
+                                <a href="{{ $application->recent_photo_filepath ? asset('storage/' . $application->recent_photo_filepath) : '#' }}"
+                                    class="btn btn-primary w-100 {{ $application->recent_photo_filepath ? '' : 'disabled' }}"
+                                    target="{{ $application->recent_photo_filepath ? '_blank' : '' }}">
                                     <i class="fas fa-image mr-2"></i> Pas Foto
                                 </a>
                             </div>
-                            @if ($application->achievement_certificate_filepath)
-                                <div class="col-md-3 mb-3">
-                                    <a href="{{ asset('storage/' . $application->achievement_certificate_filepath) }}"
-                                        class="btn btn-primary w-100" target="_blank">
-                                        <i class="fas fa-file-pdf mr-2"></i> Sertifikat Prestasi
-                                    </a>
-                                </div>
-                            @endif
-                            @if ($application->domicile_certificate_filepath)
-                                <div class="col-md-3 mb-3">
-                                    <a href="{{ asset('storage/' . $application->domicile_certificate_filepath) }}"
-                                        class="btn btn-primary w-100" target="_blank">
-                                        <i class="fas fa-file-pdf mr-2"></i> Surat Keterangan Domisili
-                                    </a>
-                                </div>
-                            @endif
-                            @if ($application->proof_of_payment_filepath)
-                                <div class="col-md-3 mb-3">
-                                    <a href="{{ asset('storage/' . $application->proof_of_payment_filepath) }}"
-                                        class="btn btn-primary w-100" target="_blank">
-                                        <i class="fas fa-file-pdf mr-2"></i> Bukti Pembayaran
-                                    </a>
-                                </div>
-                            @endif
+                            <div class="col-md-3 mb-3">
+                                <a href="{{ $application->achievement_certificate_filepath ? asset('storage/' . $application->achievement_certificate_filepath) : '#' }}"
+                                    class="btn btn-primary w-100 {{ $application->achievement_certificate_filepath ? '' : 'disabled' }}"
+                                    target="{{ $application->achievement_certificate_filepath ? '_blank' : '' }}">
+                                    <i class="fas fa-file-pdf mr-2"></i> Sertifikat Prestasi
+                                </a>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <a href="{{ $application->domicile_certificate_filepath ? asset('storage/' . $application->domicile_certificate_filepath) : '#' }}"
+                                    class="btn btn-primary w-100 {{ $application->domicile_certificate_filepath ? '' : 'disabled' }}"
+                                    target="{{ $application->domicile_certificate_filepath ? '_blank' : '' }}">
+                                    <i class="fas fa-file-pdf mr-2"></i> Surat Keterangan Domisili
+                                </a>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <a href="{{ $application->proof_of_payment_filepath ? asset('storage/' . $application->proof_of_payment_filepath) : '#' }}"
+                                    class="btn btn-primary w-100 {{ $application->proof_of_payment_filepath ? '' : 'disabled' }}"
+                                    target="{{ $application->proof_of_payment_filepath ? '_blank' : '' }}">
+                                    <i class="fas fa-file-pdf mr-2"></i> Bukti Pembayaran
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

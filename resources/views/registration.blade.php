@@ -58,9 +58,16 @@
                     <form action="{{ route('registration.store', ['slug' => request()->slug]) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
+
                         <div class="d-flex align-items-center p-3 mb-3" style="border: 1px solid var(--accent-color);">
                             <span class="text-danger me-2">*</span> <small>Wajib diisi</small>
                         </div>
+
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
 
                         <!-- Personal Information Card -->
                         <div class="card mb-4" id="personal-information">
@@ -154,10 +161,18 @@
                                         @enderror
                                     </div>
                                     <div class="col-12">
+                                        <label for="current_domicile" class="form-label">Domisili Sekarang <span
+                                                class="text-danger">*</span></label>
+                                        <textarea id="current_domicile" name="current_domicile" class="form-control" rows="4" required>{{ old('current_domicile') }}</textarea>
+                                        @error('current_domicile')
+                                            <div class="text-danger mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-12">
                                         <label for="personal_phone_number" class="form-label">Nomor Telepon/HP
-                                            (Opsional)</label>
+                                            <span class="text-danger">*</span></label>
                                         <input type="text" id="personal_phone_number" name="personal_phone_number"
-                                            class="form-control" value="{{ old('personal_phone_number') }}">
+                                            class="form-control" value="{{ old('personal_phone_number') }}" required>
                                         @error('personal_phone_number')
                                             <div class="text-danger mt-1">{{ $message }}</div>
                                         @enderror
@@ -232,35 +247,22 @@
                                     <div class="col-12">
                                         <label for="parents_occupation" class="form-label">Pekerjaan Orang Tua <span
                                                 class="text-danger">*</span></label>
-                                        <select id="parents_occupation" name="parents_occupation" class="form-control"
-                                            required>
+                                        <select id="parents_occupation" name="parents_occupation" class="form-control" onchange="toggleOtherOccupation()" required>
                                             <option value="" disabled selected>Pilih Pekerjaan</option>
-                                            <option value="PNS"
-                                                {{ old('parents_occupation') == 'PNS' ? 'selected' : '' }}>PNS</option>
-                                            <option value="TNI/Polri"
-                                                {{ old('parents_occupation') == 'TNI/Polri' ? 'selected' : '' }}>TNI/Polri
-                                            </option>
-                                            <option value="Pegawai Swasta"
-                                                {{ old('parents_occupation') == 'Pegawai Swasta' ? 'selected' : '' }}>
-                                                Pegawai Swasta</option>
-                                            <option value="Wiraswasta"
-                                                {{ old('parents_occupation') == 'Wiraswasta' ? 'selected' : '' }}>
-                                                Wiraswasta</option>
-                                            <option value="Petani"
-                                                {{ old('parents_occupation') == 'Petani' ? 'selected' : '' }}>Petani
-                                            </option>
-                                            <option value="Nelayan"
-                                                {{ old('parents_occupation') == 'Nelayan' ? 'selected' : '' }}>Nelayan
-                                            </option>
-                                            <option value="Buruh"
-                                                {{ old('parents_occupation') == 'Buruh' ? 'selected' : '' }}>Buruh</option>
-                                            <option value="Lainnya"
-                                                {{ old('parents_occupation') == 'Lainnya' ? 'selected' : '' }}>Lainnya
-                                            </option>
+                                            <option value="PNS" {{ old('parents_occupation') == 'PNS' ? 'selected' : '' }}>PNS</option>
+                                            <option value="TNI/Polri" {{ old('parents_occupation') == 'TNI/Polri' ? 'selected' : '' }}>TNI/Polri</option>
+                                            <option value="Pegawai Swasta" {{ old('parents_occupation') == 'Pegawai Swasta' ? 'selected' : '' }}>Pegawai Swasta</option>
+                                            <option value="Wiraswasta" {{ old('parents_occupation') == 'Wiraswasta' ? 'selected' : '' }}>Wiraswasta</option>
+                                            <option value="Petani" {{ old('parents_occupation') == 'Petani' ? 'selected' : '' }}>Petani</option>
+                                            <option value="Nelayan" {{ old('parents_occupation') == 'Nelayan' ? 'selected' : '' }}>Nelayan</option>
+                                            <option value="Buruh" {{ old('parents_occupation') == 'Buruh' ? 'selected' : '' }}>Buruh</option>
+                                            <option value="Lainnya" {{ old('parents_occupation') == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
                                         </select>
-                                        @error('parents_occupation')
-                                            <div class="text-danger mt-1">{{ $message }}</div>
-                                        @enderror
+                                    </div>
+                                    <div class="col-12" id="other_occupation_div" style="display: none;">
+                                        <label for="parents_occupation_other" class="form-label">Pekerjaan Lainnya <span class="text-danger">*</span></label>
+                                        <input type="text" id="parents_occupation_other" name="parents_occupation_other"
+                                            class="form-control" value="{{ old('parents_occupation_other') }}">
                                     </div>
                                     <div class="col-12">
                                         <label for="parents_address" class="form-label">Alamat Orang Tua
@@ -326,15 +328,6 @@
                                         @enderror
                                     </div>
                                     <div class="col-12">
-                                        <label for="previous_school_npsn" class="form-label">NPSN Sekolah Asal <span
-                                                class="text-danger">*</span></label>
-                                        <input type="text" id="previous_school_npsn" name="previous_school_npsn"
-                                            class="form-control" value="{{ old('previous_school_npsn') }}" required>
-                                        @error('previous_school_npsn')
-                                            <div class="text-danger mt-1">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="col-12">
                                         <label for="previous_school_address" class="form-label">Alamat Sekolah Asal <span
                                                 class="text-danger">*</span></label>
                                         <textarea id="previous_school_address" name="previous_school_address" class="form-control" rows="4" required>{{ old('previous_school_address') }}</textarea>
@@ -378,37 +371,33 @@
                             <div class="card-body">
                                 <div class="row gy-4">
                                     <div class="col-12">
-                                        <label for="birth_certificate_filepath" class="form-label">Scan Akta Kelahiran
-                                            <span class="text-danger">*</span></label>
+                                        <label for="birth_certificate_filepath" class="form-label">Scan Akta Kelahiran (Opsional)</label>
                                         <input type="file" id="birth_certificate_filepath"
-                                            name="birth_certificate_filepath" class="form-control" accept=".jpg,.jpeg,.png,.pdf" required>
+                                            name="birth_certificate_filepath" class="form-control" accept=".jpg,.jpeg,.png,.pdf">
                                         @error('birth_certificate_filepath')
                                             <div class="text-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="col-12">
-                                        <label for="family_card_filepath" class="form-label">Scan Kartu Keluarga (KK)
-                                            <span class="text-danger">*</span></label>
+                                        <label for="family_card_filepath" class="form-label">Scan Kartu Keluarga (KK) (Opsional)</label>
                                         <input type="file" id="family_card_filepath" name="family_card_filepath"
-                                            class="form-control" accept=".jpg,.jpeg,.png,.pdf" required>
+                                            class="form-control" accept=".jpg,.jpeg,.png,.pdf">
                                         @error('family_card_filepath')
                                             <div class="text-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="col-12">
-                                        <label for="report_card_filepath" class="form-label">Scan Rapor (Semester
-                                            Tertentu) <span class="text-danger">*</span></label>
+                                        <label for="report_card_filepath" class="form-label">Scan Rapor (Opsional)</label>
                                         <input type="file" id="report_card_filepath" name="report_card_filepath"
-                                            class="form-control" accept=".jpg,.jpeg,.png,.pdf" required>
+                                            class="form-control" accept=".jpg,.jpeg,.png,.pdf">
                                         @error('report_card_filepath')
                                             <div class="text-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="col-12">
-                                        <label for="recent_photo_filepath" class="form-label">Pas Foto Terbaru <span
-                                                class="text-danger">*</span></label>
+                                        <label for="recent_photo_filepath" class="form-label">Pas Foto Terbaru (Opsional)</label>
                                         <input type="file" id="recent_photo_filepath" name="recent_photo_filepath"
-                                            class="form-control" accept=".jpg,.jpeg,.png,.pdf" required>
+                                            class="form-control" accept=".jpg,.jpeg,.png,.pdf">
                                         @error('recent_photo_filepath')
                                             <div class="text-danger mt-1">{{ $message }}</div>
                                         @enderror
@@ -444,8 +433,7 @@
                             <div class="card-body">
                                 <div class="row gy-4">
                                     <div class="col-12">
-                                        <label for="proof_of_payment_filepath" class="form-label">Bukti Pembayaran
-                                            <span class="text-danger">*</span></label>
+                                        <label for="proof_of_payment_filepath" class="form-label">Bukti Pembayaran <span class="text-danger">*</span></label>
                                         <input type="file" id="proof_of_payment_filepath"
                                             name="proof_of_payment_filepath" class="form-control" accept=".jpg,.jpeg,.png,.pdf" required>
                                         @error('proof_of_payment_filepath')
@@ -465,3 +453,24 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+<script>
+    function toggleOtherOccupation() {
+        const occupation = document.getElementById('parents_occupation').value;
+        const otherDiv = document.getElementById('other_occupation_div');
+        const otherInput = document.getElementById('parents_occupation_other');
+        
+        if (occupation === 'Lainnya') {
+            otherDiv.style.display = 'block';
+            otherInput.required = true;
+        } else {
+            otherDiv.style.display = 'none';
+            otherInput.required = false;
+        }
+    }
+
+    // Call on page load to handle initial state
+    document.addEventListener('DOMContentLoaded', toggleOtherOccupation);
+</script>
+@endpush
