@@ -371,9 +371,15 @@
             if (occupation === 'Lainnya') {
                 otherDiv.style.display = 'block';
                 otherInput.required = true;
+                // Make sure the field is not empty
+                if (otherInput.value.trim() === '') {
+                    otherInput.value = '';
+                }
             } else {
                 otherDiv.style.display = 'none';
                 otherInput.required = false;
+                // Clear the field when not needed
+                otherInput.value = '';
             }
         }
 

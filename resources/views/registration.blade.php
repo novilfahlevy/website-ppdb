@@ -69,6 +69,16 @@
                             </div>
                         @endif
 
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <!-- Personal Information Card -->
                         <div class="card mb-4" id="personal-information">
                             <div class="card-header d-flex align-items-center">
@@ -258,11 +268,17 @@
                                             <option value="Buruh" {{ old('parents_occupation') == 'Buruh' ? 'selected' : '' }}>Buruh</option>
                                             <option value="Lainnya" {{ old('parents_occupation') == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
                                         </select>
+                                        @error('parents_occupation')
+                                            <div class="text-danger mt-1">{{ $message }}</div>
+                                        @enderror
                                     </div>
-                                    <div class="col-12" id="other_occupation_div" style="display: none;">
+                                    <div class="col-12" id="other_occupation_div" style="display: {{ old('parents_occupation') == 'Lainnya' ? 'block' : 'none' }};">
                                         <label for="parents_occupation_other" class="form-label">Pekerjaan Lainnya <span class="text-danger">*</span></label>
                                         <input type="text" id="parents_occupation_other" name="parents_occupation_other"
                                             class="form-control" value="{{ old('parents_occupation_other') }}">
+                                        @error('parents_occupation_other')
+                                            <div class="text-danger mt-1">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-12">
                                         <label for="parents_address" class="form-label">Alamat Orang Tua
@@ -464,9 +480,15 @@
         if (occupation === 'Lainnya') {
             otherDiv.style.display = 'block';
             otherInput.required = true;
+            // Make sure the field is not empty
+            if (otherInput.value.trim() === '') {
+                otherInput.value = '';
+            }
         } else {
             otherDiv.style.display = 'none';
             otherInput.required = false;
+            // Clear the field when not needed
+            otherInput.value = '';
         }
     }
 

@@ -1,0 +1,76 @@
+/* Registration Pages Styles */
+.registration-page {
+  padding: 160px 0 60px;
+  display: flex;
+  align-items: center;
+}
+
+.registration-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease;
+}
+
+.registration-card:hover {
+  transform: translateY(-5px);
+}
+
+.registration-card .icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.registration-card h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #0c1559;
+}
+
+.registration-card .message {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #444;
+}
+
+.registration-card .action-btn {
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.card-success .icon {
+  color: #0abb87;
+}
+
+.card-closed .icon {
+  color: #e74c3c;
+}
+
+.registration-illustration {
+  max-width: 150px;
+  height: auto;
+  margin: 0 auto 30px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .registration-card {
+    padding: 30px 20px;
+  }
+  
+  .registration-card h2 {
+    font-size: 24px;
+  }
+  
+  .registration-card .message {
+    font-size: 16px;
+  }
+}
