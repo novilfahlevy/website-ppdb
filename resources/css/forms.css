@@ -1,0 +1,95 @@
+/*--------------------------------------------------------------
+# Form Registration Styles
+--------------------------------------------------------------*/
+section.section.registration {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  section.section.registration {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  section.section.registration {
+    width: 100%;
+  }
+}
+
+.btn-primary {
+  background: var(--accent-color) !important;
+  color: var(--contrast-color) !important;
+  padding: 10px 30px !important;
+  border-radius: 50px !important;
+  transition: 0.3s !important;
+}
+
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.card-header {
+  background-color: var(--accent-color) !important;
+}
+
+.card-header h5 {
+  margin-bottom: 0;
+  color: white;
+}
+
+/*--------------------------------------------------------------
+# Info Items for Registration Form
+--------------------------------------------------------------*/
+.info-container {
+  background-color: var(--accent-color);
+  height: 100%;
+  padding: 20px;
+}
+
+.info-item {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 20px;
+  color: var(--contrast-color);
+  background-color: color-mix(in srgb, var(--contrast-color), transparent 90%);
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-item i {
+  font-size: 20px;
+  color: var(--contrast-color);
+  background-color: color-mix(in srgb, var(--contrast-color), transparent 80%);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  margin-right: 15px;
+}
+
+.info-item h3 {
+  color: var(--contrast-color);
+  font-size: 20px;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.info-item p {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.info-item:hover i {
+  background: var(--contrast-color);
+  color: var(--accent-color);
+}

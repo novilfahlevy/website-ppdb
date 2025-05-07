@@ -15,7 +15,13 @@ class HomeController extends Controller
 
     public function registration(string $slug)
     {
-        $registration = Registration::where('slug', $slug)->firstOrFail();
+        $registration = Registration::unarchived()->where('slug', $slug)->firstOrFail();
+
+        // Cek apakah pendaftaran ditutup
+        if (!$registration->is_open) {
+            return view('registration-closed', compact('registration'));
+        }
+
         return view('registration', compact('registration'));
     }
 }

@@ -17,15 +17,31 @@
     </section>
     <!-- /Hero Section -->
 
-    <section>
+    <section id="pendaftaran">
         <div class="container position-relative">
-            <div class="row gy-4 mt-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Pendaftaran</h2>
+                <p>Silahkan pilih jalur pendaftaran yang sesuai</p>
+            </div>
+            <div class="row justify-content-center gy-4 mt-3">
                 @foreach ($registrations as $registration)
                     <div class="col-xl-3 col-md-6">
                         <div class="icon-box">
-                            <div class="icon"><i class="bi bi-easel"></i></div>
-                            <h4 class="title"><a href="{{ route('registration', ['slug' => $registration->slug]) }}"
-                                    class="stretched-link">{{ $registration->name }}</a></h4>
+                            @if ($registration->is_open)
+                                <div class="icon"><i class="bi bi-person"></i></div>
+                            @else
+                                <div class="icon"><i class="bi bi-check-circle"></i></div>
+                            @endif
+                            <h4 class="title">
+                                <a href="{{ route('registration', ['slug' => $registration->slug]) }}"
+                                    class="stretched-link">
+                                    {{ $registration->name }}
+                                </a>
+                            </h4>
+                            <p class="text-white">
+                                {{ $registration->start_date->translatedFormat('d M Y') }} s.d.
+                                {{ $registration->end_date->translatedFormat('d M Y') }}
+                            </p>
                         </div>
                     </div>
                 @endforeach

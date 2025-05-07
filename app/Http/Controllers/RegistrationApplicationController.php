@@ -110,7 +110,14 @@ class RegistrationApplicationController extends Controller
             $registration = Registration::query()
                 ->where('slug', $slug)
                 ->where('is_open', true)
-                ->first();
+                ->firstOrFail();
+
+            if (!$registration->is_open) {
+                return redirect()
+                    ->back()
+                    ->withInput()
+                    ->with('error', 'Pendaftaran tidak ditemukan atau sudah ditutup.');
+            }
             
             $application = new RegistrationApplication($validatedData);
             $application->registration()->associate($registration);

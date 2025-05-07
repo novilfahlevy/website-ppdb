@@ -1,0 +1,14 @@
+/*--------------------------------------------------------------
+# Utility Classes
+--------------------------------------------------------------*/
+/* Fix double % typo in the original CSS */
+section.section.registration {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  section.section.registration {
+    width: 100%;
+  }
+}
