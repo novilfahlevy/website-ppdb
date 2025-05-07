@@ -69,10 +69,15 @@
                 <nav id="navmenu" class="navmenu">
                     <ul>
                         <li>
-                            <a href="#pendaftaran">
+                            <a href="{{ request()->routeIs('home') ? '#pendaftaran' : route('home') . '#pendaftaran' }}">
                                 Pendaftaran
                             </a>
                         </li>
+                        {{-- <li>
+                            <a href="{{ request()->routeIs('home') ? '#persyaratan' : route('home') . '#persyaratan' }}">
+                                Persyaratan
+                            </a>
+                        </li> --}}
                     </ul>
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                 </nav>
