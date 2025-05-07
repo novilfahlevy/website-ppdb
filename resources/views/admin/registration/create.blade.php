@@ -11,30 +11,37 @@
                     @csrf
                     <div class="form-group">
                         <label for="name">Nama</label>
-                        <input type="text" name="name" id="name" class="form-control" required>
+                        <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" required>
                         @error('name')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="academic_year">Tahun Ajaran</label>
+                        <input type="text" name="academic_year" id="academic_year" class="form-control" placeholder="Contoh: 2025/2026" value="{{ old('academic_year') }}" required>
+                        @error('academic_year')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label for="start_date">Mulai Dari</label>
-                        <input type="date" name="start_date" id="start_date" class="form-control" required>
+                        <input type="date" name="start_date" id="start_date" class="form-control" value="{{ old('start_date') }}" required>
                         @error('start_date')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="end_date">Sampai Dengan</label>
-                        <input type="date" name="end_date" id="end_date" class="form-control" required>
+                        <input type="date" name="end_date" id="end_date" class="form-control" value="{{ old('end_date') }}" required>
                         @error('end_date')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="is_open">Status</label>
-                        <select name="is_open" id="is_open">
-                            <option value="1">Dibuka</option>
-                            <option value="0">Selesai</option>
+                        <select name="is_open" id="is_open" required>
+                            <option value="1" {{ old('is_open') == 1 ? 'selected' : '' }}>Dibuka</option>
+                            <option value="0" {{ old('is_open') == 0 ? 'selected' : '' }}>Selesai</option>
                         </select>
                         @error('is_open')
                             <small class="text-danger">{{ $message }}</small>

@@ -19,10 +19,10 @@
 
     <!-- Custom styles for this template-->
     @vite([
-        'resources/css/sb-admin-2.min.css',
-        'resources/js/sb-admin-2.min.js',
-        'resources/js/demo/chart-area-demo.js',
-        'resources/js/demo/chart-pie-demo.js'
+        'resources/css/admin/sb-admin-2.min.css',
+        'resources/js/admin/sb-admin-2.min.js',
+        'resources/js/admin/demo/chart-area-demo.js',
+        'resources/js/admin/demo/chart-pie-demo.js'
     ])
 
 </head>

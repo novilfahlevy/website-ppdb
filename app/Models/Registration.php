@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 class Registration extends Model
 {
     protected $fillable = [
+        'academic_year',
         'name',
         'slug',
         'start_date',

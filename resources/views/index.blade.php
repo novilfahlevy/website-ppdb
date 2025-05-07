@@ -19,8 +19,8 @@
 
     <section id="pendaftaran">
         <div class="container position-relative">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Pendaftaran</h2>
+            <div class="section-title text-center mb-5">
+                <h2>Pendaftaran</h2>
                 <p>Silahkan pilih jalur pendaftaran yang sesuai</p>
             </div>
             <div class="row justify-content-center gy-4 mt-3">
@@ -38,15 +38,16 @@
                                     <p class="text-success">(Sudah Ditutup)</p>
                                 </div>
                             @endif
-                            <h4 class="title">
+                            <h4 class="title mb-2">
                                 <a href="{{ route('registration', ['slug' => $registration->slug]) }}"
                                     class="stretched-link">
                                     {{ $registration->name }}
                                 </a>
                             </h4>
+                            <p class="text-white">Tahun Ajaran {{ $registration->academic_year }}</p>
                             <p class="text-white">
-                                {{ $registration->start_date->translatedFormat('d M Y') }} s.d.
-                                {{ $registration->end_date->translatedFormat('d M Y') }}
+                                <b>{{ $registration->start_date->translatedFormat('d M Y') }}</b> s.d.
+                                <b>{{ $registration->end_date->translatedFormat('d M Y') }}</b>
                             </p>
                         </div>
                     </div>
@@ -58,8 +59,8 @@
     <!-- Persyaratan Section -->
     <section id="persyaratan" class="light-background">
         <div class="container position-relative">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Syarat Pendaftaran</h2>
+            <div class="section-title text-center mb-5">
+                <h2>Syarat Pendaftaran</h2>
                 <p>Persyaratan yang harus dipenuhi untuk pendaftaran</p>
             </div>
 
@@ -263,8 +264,8 @@
     <!-- Biaya Pendidikan Section -->
     <section id="biaya-pendidikan">
         <div class="container position-relative">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Biaya Pendidikan</h2>
+            <div class="section-title text-center mb-5">
+                <h2>Biaya Pendidikan</h2>
                 <p>Rincian biaya pendidikan yang perlu disiapkan</p>
             </div>
 
@@ -416,8 +417,8 @@
     <!-- Narahubung Section -->
     <section id="narahubung" class="light-background">
         <div class="container position-relative">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Hubungi kami untuk informasi lebih lanjut</h2>
+            <div class="section-title text-center mb-5">
+                <h2>Hubungi kami untuk informasi lebih lanjut</h2>
             </div>
 
             <div class="row justify-content-center">

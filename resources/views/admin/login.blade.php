@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    @vite(['resources/css/sb-admin-2.min.css', 'resources/js/sb-admin-2.min.js'])
+    @vite(['resources/css/admin/sb-admin-2.min.css', 'resources/js/admin/sb-admin-2.min.js'])
 
 </head>
 

@@ -13,30 +13,37 @@
 
                     <div class="form-group">
                         <label for="name">Nama</label>
-                        <input type="text" name="name" id="name" class="form-control" value="{{ $registration->name }}" required>
+                        <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $registration->name) }}" required>
                         @error('name')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="academic_year">Tahun Ajaran</label>
+                        <input type="text" name="academic_year" id="academic_year" class="form-control" value="{{ old('academic_year', $registration->academic_year) }}" placeholder="Contoh: 2025/2026" required>
+                        @error('academic_year')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label for="start_date">Mulai Dari</label>
-                        <input type="date" name="start_date" id="start_date" class="form-control" value="{{ $registration->start_date->format('Y-m-d') }}" required>
+                        <input type="date" name="start_date" id="start_date" class="form-control" value="{{ old('start_date', $registration->start_date->format('Y-m-d')) }}" required>
                         @error('start_date')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="end_date">Sampai Dengan</label>
-                        <input type="date" name="end_date" id="end_date" class="form-control" value="{{ $registration->end_date->format('Y-m-d') }}" required>
+                        <input type="date" name="end_date" id="end_date" class="form-control" value="{{ old('end_date', $registration->end_date->format('Y-m-d')) }}" required>
                         @error('end_date')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="is_open">Status</label>
-                        <select name="is_open" id="is_open">
-                            <option value="1" {{ $registration->is_open ? 'selected' : '' }}>Dibuka</option>
-                            <option value="0" {{ !$registration->is_open ? 'selected' : '' }}>Selesai</option>
+                        <select name="is_open" id="is_open" class="form-control">
+                            <option value="1" {{ old('is_open', $registration->is_open) ? 'selected' : '' }}>Dibuka</option>
+                            <option value="0" {{ old('is_open', $registration->is_open) ? '' : 'selected' }}>Selesai</option>
                         </select>
                         @error('is_open')
                             <small class="text-danger">{{ $message }}</small>

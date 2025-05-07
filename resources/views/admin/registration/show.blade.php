@@ -25,6 +25,10 @@
                                 <td>: {{ $registration->name }}</td>
                             </tr>
                             <tr>
+                                <td>Tahun Ajaran</td>
+                                <td>: {{ $registration->academic_year ?: '-' }}</td>
+                            </tr>
+                            <tr>
                                 <td>Tanggal Mulai</td>
                                 <td>: {{ $registration->start_date->translatedFormat('d F Y') }}</td>
                             </tr>

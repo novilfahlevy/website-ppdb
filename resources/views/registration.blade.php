@@ -4,8 +4,7 @@
     <section id="registration" class="registration section">
         <div class="container" data-aos="fade-up">
             <div class="section-title">
-                <h2>Formulir Pendaftaran <br>{{ $registration->name }}</h2>
-                <p>Silakan isi formulir di bawah ini untuk mendaftar.</p>
+                <h2>Formulir Pendaftaran <br><br>{{ $registration->name }}<br>Tahun Ajaran {{ $registration->academic_year }}</h2>
             </div>
 
             <div class="row">

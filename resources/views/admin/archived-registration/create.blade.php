@@ -17,6 +17,13 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="academic_year">Tahun Ajaran</label>
+                        <input type="text" name="academic_year" id="academic_year" class="form-control" placeholder="Contoh: 2025/2026" required>
+                        @error('academic_year')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label for="start_date">Mulai Dari</label>
                         <input type="date" name="start_date" id="start_date" class="form-control" required>
                         @error('start_date')

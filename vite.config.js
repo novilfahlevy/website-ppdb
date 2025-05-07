@@ -6,13 +6,10 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/app.css',
-                'resources/js/app.js',
-                'resources/css/sb-admin-2.min.css',
-                'resources/js/sb-admin-2.min.js',
-                'resources/js/demo/chart-area-demo.js',
-                'resources/js/demo/chart-pie-demo.js',
-                'resources/css/main.css',
+                'resources/css/admin/app.css',
+                'resources/js/admin/app.js',
+                'resources/css/admin/sb-admin-2.min.css',
+                'resources/js/admin/sb-admin-2.min.js',
                 'resources/css/main.css',
             ],
             refresh: true,

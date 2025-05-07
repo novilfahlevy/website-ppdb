@@ -31,10 +31,18 @@ class RegistrationController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:registrations,name,NULL,id,academic_year,' . $request->academic_year,
+            'academic_year' => 'required|string|max:255',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
             'is_open' => 'required|boolean'
+        ], [
+            'name.required' => 'Nama pendaftaran harus diisi.',
+            'name.unique' => 'Pendaftaran dengan nama ini sudah ada pada tahun ajaran yang sama.',
+            'academic_year.required' => 'Tahun ajaran harus diisi.',
+            'end_date.after_or_equal' => 'Tanggal akhir pendaftaran harus setelah atau sama dengan tanggal mulai pendaftaran.',
+            'is_open.required' => 'Status pendaftaran harus diisi.',
+            'is_open.boolean' => 'Status pendaftaran harus berupa true atau false.'
         ]);
 
         Registration::create($validated);
@@ -135,10 +143,18 @@ class RegistrationController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:registrations,name,' . $id . ',id,academic_year,' . $request->academic_year,
+            'academic_year' => 'required|string|max:255',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
             'is_open' => 'required|boolean'
+        ], [
+            'name.required' => 'Nama pendaftaran harus diisi.',
+            'name.unique' => 'Pendaftaran dengan nama ini sudah ada pada tahun ajaran yang sama.',
+            'academic_year.required' => 'Tahun ajaran harus diisi.',
+            'end_date.after_or_equal' => 'Tanggal akhir pendaftaran harus setelah atau sama dengan tanggal mulai pendaftaran.',
+            'is_open.required' => 'Status pendaftaran harus diisi.',
+            'is_open.boolean' => 'Status pendaftaran harus berupa true atau false.'
         ]);
 
         $registration = Registration::findOrFail($id);
