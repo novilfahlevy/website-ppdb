@@ -28,9 +28,15 @@
                     <div class="col-xl-3 col-md-6">
                         <div class="icon-box">
                             @if ($registration->is_open)
-                                <div class="icon"><i class="bi bi-person"></i></div>
+                                <div>
+                                    <div class="icon"><i class="bi bi-person"></i></div>
+                                    <p class="text-primary">(Sedang Berlangsung)</p>
+                                </div>
                             @else
-                                <div class="icon"><i class="bi bi-check-circle"></i></div>
+                                <div>
+                                    <div class="icon"><i class="bi bi-check-circle text-success"></i></div>
+                                    <p class="text-success">(Sudah Ditutup)</p>
+                                </div>
                             @endif
                             <h4 class="title">
                                 <a href="{{ route('registration', ['slug' => $registration->slug]) }}"
