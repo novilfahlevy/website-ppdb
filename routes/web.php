@@ -9,16 +9,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationApplicationController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\UserController;
-use App\Models\User;
-use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/pendaftaran/{slug}', [HomeController::class, 'registration'])->name('registration');
-Route::post('/pendaftaran/{slug}', [RegistrationApplicationController::class, 'store'])->name('registration.store');
+Route::get('/pendaftaran/{slug}/{tahunAjaran}', [HomeController::class, 'registration'])->name('registration');
+Route::post('/pendaftaran/{slug}/{tahunAjaran}', [RegistrationApplicationController::class, 'store'])->name('registration.store');
 
 // Make sure there's no middleware on the success route
 Route::get('/pendaftaran-berhasil', [RegistrationApplicationController::class, 'showSuccess'])->name('registration.success');

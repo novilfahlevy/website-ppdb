@@ -34,6 +34,10 @@ class Registration extends Model
         static::updating(function ($registration) {
             $registration->slug = Str::slug($registration->name);
         });
+
+        static::addGlobalScope('orderByNameAndYear', function (Builder $builder) {
+            $builder->orderBy('name', 'asc')->orderByRaw("FIELD(academic_year, '2023/2024') DESC");
+        });
     }
 
     public function scopeOpen(Builder $query)

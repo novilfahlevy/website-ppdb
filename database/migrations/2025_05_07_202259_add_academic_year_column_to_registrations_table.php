@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('registrations', function (Blueprint $table) {
             $table->string('academic_year')->after('id')->comment('Tahun ajaran (misal: 2025/2026)')->nullable();
+            $table->unique(['slug', 'academic_year']);
         });
     }
 
@@ -22,6 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('registrations', function (Blueprint $table) {
+            $table->dropUnique(['slug', 'academic_year']);
             $table->dropColumn('academic_year');
         });
     }

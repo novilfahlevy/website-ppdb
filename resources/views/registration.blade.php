@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-8">
-                    <form action="{{ route('registration.store', ['slug' => request()->slug]) }}" method="POST"
+                    <form action="{{ route('registration.store', ['slug' => $registration->slug, 'tahunAjaran' => urlencode(str_replace('/', '-', $registration->academic_year))]) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
 
@@ -361,15 +361,6 @@
                                                 {{ old('school_status') == 'Swasta' ? 'selected' : '' }}>Swasta</option>
                                         </select>
                                         @error('school_status')
-                                            <div class="text-danger mt-1">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="exam_participant_number" class="form-label">Nomor Peserta Ujian
-                                            (Opsional)</label>
-                                        <input type="text" id="exam_participant_number" name="exam_participant_number"
-                                            class="form-control" value="{{ old('exam_participant_number') }}">
-                                        @error('exam_participant_number')
                                             <div class="text-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>

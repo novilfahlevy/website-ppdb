@@ -24,7 +24,7 @@
                 <p>Silahkan pilih jalur pendaftaran yang sesuai</p>
             </div>
             <div class="row justify-content-center gy-4 mt-3">
-                @foreach ($registrations as $registration)
+                @forelse ($registrations as $registration)
                     <div class="col-xl-3 col-md-6">
                         <div class="icon-box">
                             @if ($registration->is_open)
@@ -39,7 +39,7 @@
                                 </div>
                             @endif
                             <h4 class="title mb-2">
-                                <a href="{{ route('registration', ['slug' => $registration->slug]) }}"
+                                <a href="{{ route('registration', ['slug' => $registration->slug, 'tahunAjaran' => urlencode(str_replace('/', '-', $registration->academic_year))]) }}"
                                     class="stretched-link">
                                     {{ $registration->name }}
                                 </a>
@@ -51,7 +51,15 @@
                             </p>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="col-md-8">
+                        <div class="alert alert-warning text-center py-5">
+                            <i class="bi bi-info-circle fs-1 mb-3 d-block"></i>
+                            <h4 class="alert-heading">Belum Ada Pendaftaran</h4>
+                            <p class="mb-0">Saat ini belum ada jadwal pendaftaran yang tersedia. Silahkan periksa kembali di lain waktu.</p>
+                        </div>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>

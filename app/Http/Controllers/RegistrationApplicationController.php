@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 
 class RegistrationApplicationController extends Controller
 {
-    public function store(Request $request, string $slug)
+    public function store(Request $request, string $slug, string $tahunAjaran)
     {
         try {
             // If parents_occupation is not 'Lainnya', remove parents_occupation_other from request
@@ -122,6 +122,8 @@ class RegistrationApplicationController extends Controller
 
             // Check if the registration exists and is open
             $registration = Registration::query()
+                ->unarchived()
+                ->where('academic_year', str_replace('-', '/', $tahunAjaran))
                 ->where('slug', $slug)
                 ->where('is_open', true)
                 ->first();
@@ -167,7 +169,11 @@ class RegistrationApplicationController extends Controller
             $application->registration()->associate($registration);
             $application->save();
 
-            return redirect()->route('registration.success', ['nisn' => $validatedData['nisn'], 'pendaftaran' => $slug]);
+            return redirect()->route('registration.success', [
+                'nisn' => $validatedData['nisn'],
+                'pendaftaran' => $slug,
+                'tahun_ajaran' => str_replace('/', '-', $registration->academic_year),
+            ]);
         } catch (\Illuminate\Validation\ValidationException $e) {
             Log::error('Validation error: ' . json_encode($e->errors()));
             return redirect()
@@ -317,13 +323,14 @@ class RegistrationApplicationController extends Controller
 
     public function showSuccess(Request $request)
     {
-        // TODO: Nanti sesuaikan lagi
         $nisn = $request->query('nisn');
         $registrationName = $request->query('pendaftaran');
+        $academicYear = $request->query('tahun_ajaran');
 
         $application = RegistrationApplication::query()
-            ->whereHas('registration', function ($query) use ($registrationName) {
-                $query->where('slug', $registrationName);
+            ->whereHas('registration', function ($query) use ($registrationName, $academicYear) {
+                $query->where('slug', $registrationName)
+                    ->where('academic_year', str_replace('-', '/', $academicYear));
             })
             ->where('nisn', $nisn)
             ->first();

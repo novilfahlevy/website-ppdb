@@ -13,9 +13,12 @@ class HomeController extends Controller
         return view('index', compact('registrations'));
     }
 
-    public function registration(string $slug)
+    public function registration(string $slug, $academicYear)
     {
-        $registration = Registration::unarchived()->where('slug', $slug)->firstOrFail();
+        $registration = Registration::unarchived()
+            ->where('academic_year', str_replace('-', '/', $academicYear))
+            ->where('slug', $slug)
+            ->firstOrFail();
 
         // Cek apakah pendaftaran ditutup
         if (!$registration->is_open) {
