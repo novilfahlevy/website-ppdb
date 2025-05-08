@@ -83,11 +83,6 @@
                                 Biaya Pendidikan
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ request()->routeIs('home') ? '#narahubung' : route('home') . '#narahubung' }}">
-                                Narahubung
-                            </a>
-                        </li>
                     </ul>
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                 </nav>
