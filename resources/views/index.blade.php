@@ -2,12 +2,14 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section id="hero" class="hero" style="background-image: url('{{ asset('assets/banner.jpg') }}');">
+    <section id="hero" class="hero" style="background-image: url({{ asset('assets/banner.jpg') }});">
+        <div class="overlay"></div>
+        <div class="bg-text">WELCOME TO</div>
         <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-            <div class="row gy-5">
+            <div class="row hero-content">
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
-                    <h2 class="text-white">{{ config('app.name') }}</h2>
-                    <p class="text-white">
+                    <h2 class="text-white fw-bold">PPDB Immanuel Kalasan Jogja</h2>
+                    <p class="text-white fs-5">
                         Bersama kami mendidik buah hati anda dengan sepenuh hati demi tercapainya masa depan yang penuh
                         harapan.
                     </p>
