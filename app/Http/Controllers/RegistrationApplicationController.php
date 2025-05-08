@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RegistrationSucceeded;
 use App\Models\Registration;
 use App\Models\RegistrationApplication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class RegistrationApplicationController extends Controller
 {
@@ -168,6 +170,11 @@ class RegistrationApplicationController extends Controller
             $application = new RegistrationApplication($validatedData);
             $application->registration()->associate($registration);
             $application->save();
+
+            // Send email notification
+            if ($validatedData['email']) {
+                Mail::to($validatedData['email'])->send(new RegistrationSucceeded($application));
+            }
 
             return redirect()->route('registration.success', [
                 'nisn' => $validatedData['nisn'],
