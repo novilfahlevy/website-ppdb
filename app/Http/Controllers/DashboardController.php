@@ -15,8 +15,8 @@ class DashboardController extends Controller
     public function index()
     {
         // Key statistics
-        $activeRegistrations = Registration::unarchived()->where('is_open', true)->count();
-        $totalApplications = RegistrationApplication::query()
+        $unarchivedRegistrations = Registration::unarchived()->count();
+        $totalUnarchivedApplications = RegistrationApplication::query()
             ->whereHas('registration', fn ($query) => $query->unarchived())
             ->count();
         
@@ -53,8 +53,8 @@ class DashboardController extends Controller
             
         // Return data to the view
         return view('admin.index', compact(
-            'activeRegistrations',
-            'totalApplications',
+            'unarchivedRegistrations',
+            'totalUnarchivedApplications',
             'currentApplications',
             'recentApplications',
             'latestApplications',
