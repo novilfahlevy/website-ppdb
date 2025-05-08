@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Registration;
+use App\Models\RegistrationApplication;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -11,7 +14,55 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        // Key statistics
+        $activeRegistrations = Registration::unarchived()->where('is_open', true)->count();
+        $totalApplications = RegistrationApplication::query()
+            ->whereHas('registration', fn ($query) => $query->unarchived())
+            ->count();
+        
+        // Get applications for current academic year
+        $currentYear = Carbon::now()->year;
+        $currentApplications = RegistrationApplication::whereHas('registration', function($query) use ($currentYear) {
+            $query->where('academic_year', $currentYear);
+        })->count();
+        
+        // Recent applications (last 7 days)
+        $recentApplications = RegistrationApplication::where('created_at', '>=', Carbon::now()->subDays(7))->count();
+        
+        // Latest 5 applications
+        $latestApplications = RegistrationApplication::with('registration')
+            ->latest()
+            ->take(5)
+            ->get();
+        
+        // Active registrations
+        $openRegistrations = Registration::unarchived()
+            ->where('is_open', true)
+            ->take(5)
+            ->get();
+            
+        // Gender distribution
+        $maleCount = RegistrationApplication::where('gender', 'Laki-laki')->count();
+        $femaleCount = RegistrationApplication::where('gender', 'Perempuan')->count();
+        
+        // Applications by registration period
+        $applicationsByRegistration = Registration::withCount('applications')
+            ->orderBy('academic_year', 'desc')
+            ->take(5)
+            ->get();
+            
+        // Return data to the view
+        return view('admin.index', compact(
+            'activeRegistrations',
+            'totalApplications',
+            'currentApplications',
+            'recentApplications',
+            'latestApplications',
+            'openRegistrations',
+            'maleCount',
+            'femaleCount',
+            'applicationsByRegistration'
+        ));
     }
 
     /**
