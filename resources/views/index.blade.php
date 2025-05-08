@@ -65,7 +65,7 @@
                 <div class="col-lg-6">
                     <div class="card shadow h-100">
                         <div class="card-header">
-                            <h5 class="m-0 font-weight-bold">Siswa Baru</h5>
+                            <h5 class="m-0 font-weight-bold">Untuk Siswa Baru</h5>
                         </div>
                         <div class="card-body">
                             <ol class="ps-3">
@@ -83,7 +83,7 @@
                 <div class="col-lg-6">
                     <div class="card shadow h-100">
                         <div class="card-header">
-                            <h5 class="m-0 font-weight-bold">Siswa Mutasi / Pindahan</h5>
+                            <h5 class="m-0 font-weight-bold">Untuk Siswa Mutasi / Pindahan</h5>
                         </div>
                         <div class="card-body">
                             <ol class="ps-3">
@@ -270,10 +270,10 @@
                 <!-- Sumbangan Fasilitas Pendidikan Card -->
                 <div class="col-lg-4 mb-4">
                     <div class="card shadow h-100">
-                        <div class="card-header bg-primary text-white">
-                            <h5 class="m-0 font-weight-bold">
-                                <i class="bi bi-building me-2"></i>
-                                Sumbangan Fasilitas Pendidikan
+                        <div class="card-header bg-primary text-white py-3">
+                            <h5 class="d-flex align-items-center m-0 font-weight-bold">
+                                <i class="bi bi-building me-3"></i>
+                                <p class="mb-0">Sumbangan Fasilitas Pendidikan</p>
                             </h5>
                         </div>
                         <div class="card-body">
@@ -313,10 +313,10 @@
                 <!-- DPP Card -->
                 <div class="col-lg-4 mb-4">
                     <div class="card shadow h-100">
-                        <div class="card-header bg-primary text-white">
-                            <h5 class="m-0 font-weight-bold">
-                                <i class="bi bi-cash-stack me-2"></i>
-                                Dana Pengembangan Pendidikan (DPP)
+                        <div class="card-header bg-primary text-white py-3">
+                            <h5 class="d-flex align-items-center m-0 font-weight-bold">
+                                <i class="bi bi-cash-stack me-3"></i>
+                                <p class="mb-0">Dana Pengembangan Pendidikan (DPP)</p>
                             </h5>
                         </div>
                         <div class="card-body">
@@ -349,10 +349,10 @@
                 <!-- SPP Card -->
                 <div class="col-lg-4 mb-4">
                     <div class="card shadow h-100">
-                        <div class="card-header bg-primary text-white">
-                            <h5 class="m-0 font-weight-bold">
-                                <i class="bi bi-calendar-check me-2"></i>
-                                Sumbangan Pembinaan Pendidikan (SPP)
+                        <div class="card-header bg-primary text-white py-3">
+                            <h5 class="d-flex align-items-center m-0 font-weight-bold">
+                                <i class="bi bi-calendar-check me-3"></i>
+                                <p class="mb-0">Sumbangan Pembinaan Pendidikan (SPP)</p>
                             </h5>
                         </div>
                         <div class="card-body">
