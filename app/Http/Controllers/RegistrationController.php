@@ -68,7 +68,7 @@ class RegistrationController extends Controller
                       ->orWhere('gender', 'like', "%{$search}%")
                       ->orWhere('previous_school_name', 'like', "%{$search}%");
             })
-            ->get();
+            ->paginate(20);
 
         return view('admin.registration.show', compact('registration', 'applications'));
     }

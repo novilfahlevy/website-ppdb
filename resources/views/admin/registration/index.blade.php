@@ -25,7 +25,7 @@
                     <tbody>
                         @forelse ($registrations as $registration)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ ($registrations ->currentpage()-1) * $registrations ->perpage() + $loop->index + 1 }}</td>
                                 <td>{{ $registration->name }}</td>
                                 <td>{{ $registration->academic_year ?: '-' }}</td>
                                 <td>{{ $registration->start_date->translatedFormat('l, d F Y') }}</td>

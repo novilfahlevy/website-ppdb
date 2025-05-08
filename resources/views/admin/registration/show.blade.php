@@ -90,7 +90,7 @@
                         <tbody>
                             @forelse ($applications as $index => $application)
                                 <tr>
-                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ ($applications ->currentpage()-1) * $applications ->perpage() + $loop->index + 1 }}</td>
                                     <td>{{ $application->full_name }}</td>
                                     <td>{{ $application->nisn }}</td>
                                     <td>{{ $application->gender }}</td>
@@ -111,6 +111,7 @@
                             @endforelse
                         </tbody>
                     </table>
+                    {{ $applications->links() }}
                 </div>
             </div>
         </div>
