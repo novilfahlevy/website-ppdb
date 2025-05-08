@@ -66,6 +66,7 @@
                         @endforelse
                     </tbody>
                 </table>
+                {{ $registrations->links() }}
             </div>
         </div>
     </div>

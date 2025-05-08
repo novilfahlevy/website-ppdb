@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Registration;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Paginator::useBootstrapFive();
+        
         // Ambil data pendaftaran untuk ditampilkan di navbar
         view()->composer('layouts.app', function ($view) {
             $registrations = Registration::unarchived()->get();

@@ -9,7 +9,7 @@ class ArchivedRegistrationController extends Controller
 {
     public function index()
     {
-        $registrations = Registration::archived()->get();
+        $registrations = Registration::archived()->paginate(10);
         return view('admin.archived-registration.index', compact('registrations'));
     }
 }

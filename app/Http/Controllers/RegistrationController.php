@@ -13,7 +13,7 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        $registrations = Registration::unarchived()->get();
+        $registrations = Registration::unarchived()->paginate(10);
         return view('admin.registration.index', compact('registrations'));
     }
 
