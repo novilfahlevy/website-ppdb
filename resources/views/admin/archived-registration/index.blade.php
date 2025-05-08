@@ -2,8 +2,20 @@
 
 @section('content')
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
+        <div class="card-header d-flex align-items-center justify-content-between py-3">
             <h6 class="m-0 font-weight-bold text-primary">Data Arsip Pendaftaran</h6>
+            <form method="GET" action="{{ route('registrations.archived.index') }}"
+                class="d-inline-block d-flex align-items-center">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-white border-right-0">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                    <input type="text" name="cari" class="form-control border-left-0" placeholder="Cari nama dan tahun ajaran..."
+                        value="{{ request('cari') }}">
+                </div>
+            </form>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -53,7 +65,8 @@
                                         @csrf
                                         @method('PUT')
                                         <button type="submit" class="btn btn-sm btn-warning"
-                                            onclick="return confirm('Apakah anda yakin ingin keluarkan pendaftaran ini dari arsip?')">Batalkan Arsip</button>
+                                            onclick="return confirm('Apakah anda yakin ingin keluarkan pendaftaran ini dari arsip?')">Batalkan
+                                            Arsip</button>
                                     </form>
                                 </td>
                             </tr>
