@@ -21,30 +21,25 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Data
-    </div>
-
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('registrations.index') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('registrations.index') }}">
-            <i class="fas fa-fw fa-users"></i>
+            <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Pendaftaran</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('users.index') }}">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Pengguna</span></a>
-    </li>
-
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('registrations.archived.index') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('registrations.archived.index') }}">
             <i class="fas fa-fw fa-archive"></i>
             <span>Arsip Pendaftaran</span></a>
+    </li>
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item {{ request()->routeIs('users.index') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('users.index') }}">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Pengguna</span></a>
     </li>
 
     <!-- Sidebar Toggler (Sidebar) -->
