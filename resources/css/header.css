@@ -2,16 +2,16 @@
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: var(--accent-color);
+  --background-color: linear-gradient(180deg, var(--accent-color) 0%, color-mix(in srgb, var(--accent-color) 80%, black 40%) 100%);
   --heading-color: #ffffff;
   color: var(--default-color);
   transition: all 0.5s;
   z-index: 997;
-  background-color: var(--background-color);
+  background: var(--background-color);
 }
 
 .header .topbar {
-  background-color: color-mix(in srgb, var(--accent-color) 90%, black 10%);
+  background-color: color-mix(in srgb, var(--accent-color) 80%, black 25%);
   height: 40px;
   padding: 0;
   font-size: 14px;
