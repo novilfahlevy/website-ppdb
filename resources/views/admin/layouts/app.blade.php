@@ -22,13 +22,32 @@
 
     <!-- Custom styles for this template-->
     @vite([
-        'resources/js/admin/jquery.min.js',
         'resources/css/admin/sb-admin-2.min.css',
-        'resources/js/admin/sb-admin-2.min.js',
         'resources/js/admin/chart.js',
+        'resources/js/admin/jquery.min.js',
+        'resources/js/admin/bootstrap.bundle.min.js'
     ])
 
-    {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script> --}}
+    <!-- Custom scripts for admin template -->
+    <script>
+        // Ensure dropdown functionality is working
+        $(document).ready(function() {
+            // Initialize all dropdowns
+            $('.dropdown-toggle').dropdown();
+
+            // Debug logging
+            console.log('Bootstrap dropdown initialized');
+
+            // SB Admin 2 sidebar toggle functionality
+            $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
+                $("body").toggleClass("sidebar-toggled");
+                $(".sidebar").toggleClass("toggled");
+                if ($(".sidebar").hasClass("toggled")) {
+                    $('.sidebar .collapse').collapse('hide');
+                }
+            });
+        });
+    </script>
 
 </head>
 
