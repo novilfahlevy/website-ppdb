@@ -21,11 +21,10 @@ class DashboardController extends Controller
             ->count();
         
         // Get applications for current academic year
-        $currentYear = Carbon::now()->year;
-        $currentApplications = RegistrationApplication::whereHas('registration', function($query) use ($currentYear) {
-            $query->where('academic_year', $currentYear);
-        })->count();
-        
+        $currentApplications = RegistrationApplication::where('created_at', '>=', Carbon::now()->startOfYear())
+            ->where('created_at', '<=', Carbon::now()->endOfYear())
+            ->count();
+
         // Recent applications (last 7 days)
         $recentApplications = RegistrationApplication::where('created_at', '>=', Carbon::now()->subDays(7))->count();
         
