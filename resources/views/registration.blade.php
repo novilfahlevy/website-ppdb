@@ -187,9 +187,9 @@
                                         @enderror
                                     </div>
                                     <div class="col-12">
-                                        <label for="email" class="form-label">Email (Opsional)</label>
+                                        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
                                         <input type="email" id="email" name="email" class="form-control"
-                                            value="{{ old('email') }}">
+                                            value="{{ old('email') }}" required>
                                         @error('email')
                                             <div class="text-danger mt-1">{{ $message }}</div>
                                         @enderror
