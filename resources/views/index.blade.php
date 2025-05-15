@@ -278,26 +278,12 @@
                         </div>
                         <div class="card-body">
                             <ul class="list-group list-group-flush mb-4">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <span>Pilihan 1</span>
-                                    <span class="badge bg-primary rounded-pill">Rp 1.000.000</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <span>Pilihan 2</span>
-                                    <span class="badge bg-primary rounded-pill">Rp 2.000.000</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <span>Pilihan 3</span>
-                                    <span class="badge bg-primary rounded-pill">Rp 3.000.000</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <span>Pilihan 4</span>
-                                    <span class="badge bg-primary rounded-pill">Rp 4.000.000</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <span>Pilihan 5</span>
-                                    <span class="badge bg-primary rounded-pill">Rp 5.000.000</span>
-                                </li>
+                                @for ($i = 1; $i <= 5; $i++)
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <span>Pilihan {{ $i }}</span>
+                                        <span class="badge bg-primary rounded-pill">Rp {{ number_format($fee->{'sfp_option_' . $i}, 0, ',', '.') }}</span>
+                                    </li>
+                                @endfor
                                 <li class="list-group-item d-flex justify-content-between align-items-center fst-italic">
                                     <span>Atau sesuai kemampuan orang tua/wali</span>
                                 </li>
@@ -321,21 +307,14 @@
                         </div>
                         <div class="card-body">
                             <div class="text-center mb-4">
-                                <h1 class="display-6 fw-bold text-primary">Rp 4.000.000</h1>
+                                <h1 class="display-6 fw-bold text-primary">Rp {{ number_format($fee->dpp_amount, 0, ',', '.') }}</h1>
                             </div>
                             
                             <p class="fw-bold mb-2">Rincian DPP:</p>
                             <ul class="mb-4">
-                                <li>Seragam Olahraga</li>
-                                <li>Atribut dan kartu pelajar</li>
-                                <li>Asuransi dan psikotest</li>
-                                <li>Pendampingan siswa</li>
-                                <li>Buku rapor</li>
-                                <li>Outing class</li>
-                                <li>Tes & ujian</li>
-                                <li>Kegiatan kesiswaan</li>
-                                <li>Kerohanian</li>
-                                <li>Ekstrakurikuler</li>
+                                @foreach($fee->dpp_items as $item)
+                                    <li>{{ $item }}</li>
+                                @endforeach
                             </ul>
                             
                             <div class="alert alert-info mb-0">
@@ -357,7 +336,7 @@
                         </div>
                         <div class="card-body">
                             <div class="text-center mb-4">
-                                <h1 class="display-6 fw-bold text-primary">Rp 400.000</h1>
+                                <h1 class="display-6 fw-bold text-primary">Rp {{ number_format($fee->spp_amount, 0, ',', '.') }}</h1>
                                 <p class="text-muted">per bulan</p>
                             </div>
                             
@@ -398,8 +377,8 @@
                                 <div class="col-md-6">
                                     <div class="text-center">
                                         <p class="fw-bold mb-1">Untuk informasi lebih lanjut, hubungi:</p>
-                                        <p class="mb-1"><i class="bi bi-telephone me-2"></i> (0274) 123456</p>
-                                        <p class="mb-1"><i class="bi bi-envelope me-2"></i> keuangan@sekolah.ac.id</p>
+                                        <p class="mb-1"><i class="bi bi-telephone me-2"></i> {{ $fee->payment_phone }}</p>
+                                        <p class="mb-1"><i class="bi bi-envelope me-2"></i> {{ $fee->payment_email }}</p>
                                     </div>
                                 </div>
                             </div>

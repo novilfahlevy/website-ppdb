@@ -20,6 +20,9 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <!-- Custom styles for this template-->
     @vite([
         'resources/css/admin/sb-admin-2.min.css',
@@ -27,27 +30,6 @@
         'resources/js/admin/jquery.min.js',
         'resources/js/admin/bootstrap.bundle.min.js'
     ])
-
-    <!-- Custom scripts for admin template -->
-    <script>
-        // Ensure dropdown functionality is working
-        $(document).ready(function() {
-            // Initialize all dropdowns
-            $('.dropdown-toggle').dropdown();
-
-            // Debug logging
-            console.log('Bootstrap dropdown initialized');
-
-            // SB Admin 2 sidebar toggle functionality
-            $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
-                $("body").toggleClass("sidebar-toggled");
-                $(".sidebar").toggleClass("toggled");
-                if ($(".sidebar").hasClass("toggled")) {
-                    $('.sidebar .collapse').collapse('hide');
-                }
-            });
-        });
-    </script>
 
 </head>
 

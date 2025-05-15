@@ -28,6 +28,13 @@
     </li>
 
     <!-- Nav Item - Tables -->
+    <li class="nav-item {{ request()->routeIs('fees.index') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('fees.index') }}">
+            <i class="fas fa-fw fa-money-bill"></i>
+            <span>Biaya Pendaftaran</span></a>
+    </li>
+
+    <!-- Nav Item - Tables -->
     <li class="nav-item {{ request()->routeIs('registrations.archived.index') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('registrations.archived.index') }}">
             <i class="fas fa-fw fa-archive"></i>

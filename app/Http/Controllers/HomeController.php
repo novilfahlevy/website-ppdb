@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fee;
 use App\Models\Registration;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,8 @@ class HomeController extends Controller
     public function index()
     {
         $registrations = Registration::unarchived()->get();
-        return view('index', compact('registrations'));
+        $fee = Fee::first();
+        return view('index', compact('registrations', 'fee'));
     }
 
     public function registration(string $slug, $academicYear)

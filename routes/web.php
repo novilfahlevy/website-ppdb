@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeeController;
 use App\Http\Controllers\ArchivedRegistrationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ForgotPasswordController;
@@ -48,7 +49,10 @@ Route::middleware(['auth'])->group(function () {
             'update' => 'registrations.update',
             'destroy' => 'registrations.destroy',
         ]);
-    
+        
+    Route::get('/fees', [FeeController::class, 'index'])->name('fees.index');
+    Route::post('/fees', [FeeController::class, 'update'])->name('fees.update');
+
     Route::put('/registrations/{id}/archive', [RegistrationController::class, 'archive'])->name('registrations.archive');
     Route::put('/registrations/{id}/unarchive', [RegistrationController::class, 'unarchive'])->name('registrations.unarchive');
     Route::get('/registrations/{id}/applications', [RegistrationController::class, 'showApplication'])->name('registrations.application');
