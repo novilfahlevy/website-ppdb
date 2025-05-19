@@ -2,7 +2,10 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
-        <div class="sidebar-brand-text mx-3">
+        <div class="sidebar-brand-icon">
+            <img src="{{ asset('assets/small-logo.png') }}" alt="{{ config('app.name') }}" width="32">
+        </div>
+        <div class="sidebar-brand-text">
             <img src="{{ asset('assets/logo.png') }}" alt="{{ config('app.name') }}" class="img-fluid">
         </div>
     </a>

@@ -26,6 +26,7 @@
     <!-- Custom styles for this template-->
     @vite([
         'resources/css/admin/sb-admin-2.min.css',
+        'resources/css/admin/app.css',
         'resources/js/admin/chart.js',
         'resources/js/admin/jquery.min.js',
         'resources/js/admin/bootstrap.bundle.min.js',
