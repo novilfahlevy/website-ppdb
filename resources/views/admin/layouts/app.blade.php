@@ -28,7 +28,8 @@
         'resources/css/admin/sb-admin-2.min.css',
         'resources/js/admin/chart.js',
         'resources/js/admin/jquery.min.js',
-        'resources/js/admin/bootstrap.bundle.min.js'
+        'resources/js/admin/bootstrap.bundle.min.js',
+        'resources/js/admin/sb-admin-2.min.js'
     ])
 
 </head>
