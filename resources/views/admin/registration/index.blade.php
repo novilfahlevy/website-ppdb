@@ -13,13 +13,13 @@
                     <thead>
                         <tr>
                             <th>NO</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Tahun Ajaran</th>
-                            <th scope="col">Mulai Dari</th>
-                            <th scope="col">Sampai Dengan</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Tanggal Dibuat</th>
-                            <th scope="col">Aksi</th>
+                            <th scope="col" style="min-width: 200px;">Nama</th>
+                            <th scope="col" style="min-width: 200px;">Tahun Ajaran</th>
+                            <th scope="col" style="min-width: 300px;">Mulai Dari</th>
+                            <th scope="col" style="min-width: 300px;">Sampai Dengan</th>
+                            <th scope="col" style="min-width: 150px;">Status</th>
+                            <th scope="col" style="min-width: 300px;">Tanggal Dibuat</th>
+                            <th scope="col" style="min-width: 200px;">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,7 +38,7 @@
                                     @endif
                                 </td>
                                 <td>{{ $registration->created_at->translatedFormat('l, d F Y H:i') }}</td>
-                                <td class="d-inline-flex flex-column">
+                                <td class="d-inline-flex flex-column" style="width: 200px;">
                                     <a href="{{ route('registrations.edit', ['id' => $registration->id]) }}"
                                         class="btn btn-sm btn-primary mb-2">Edit</a>
                                     <form action="{{ route('registrations.destroy', ['id' => $registration->id]) }}"
