@@ -66,8 +66,8 @@
 
     <div class="card shadow">
         <!-- Card Header - Dropdown -->
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Pendaftar</h6>
+        <div class="card-header d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between py-3">
+            <h6 class="m-0 font-weight-bold text-primary mb-2 mb-md-0">Pendaftar</h6>
             <form method="GET" action="{{ route('registrations.show', ['id' => $registration->id]) }}"
                 class="d-inline-block d-flex align-items-center">
                 <div class="input-group input-group-sm">

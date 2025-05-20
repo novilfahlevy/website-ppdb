@@ -2,19 +2,20 @@
 
 @section('content')
     <div class="card shadow mb-4">
-        <div class="card-header d-flex align-items-center justify-content-between py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Arsip Pendaftaran</h6>
+        <div
+            class="card-header d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between py-3">
+            <h6 class="m-0 font-weight-bold text-primary mb-2 mb-md-0">Data Arsip Pendaftaran</h6>
             <form method="GET" action="{{ route('registrations.archived.index') }}"
-                class="d-inline-block d-flex align-items-center">
-                <div class="input-group input-group-sm">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text bg-white border-right-0">
-                            <i class="fas fa-search"></i>
-                        </span>
-                    </div>
-                    <input type="text" name="cari" class="form-control border-left-0" placeholder="Cari nama dan tahun ajaran..."
-                        value="{{ request('cari') }}">
+            class="d-inline-block d-flex align-items-center" style="max-width: 300px;">
+            <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                <span class="input-group-text bg-white border-right-0">
+                    <i class="fas fa-search"></i>
+                </span>
                 </div>
+                <input type="text" name="cari" class="form-control border-left-0"
+                placeholder="Cari nama dan tahun ajaran..." value="{{ request('cari') }}">
+            </div>
             </form>
         </div>
         <div class="card-body">
@@ -22,20 +23,21 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col">NO</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Tahun Ajaran</th>
-                            <th scope="col">Mulai Dari</th>
-                            <th scope="col">Sampai Dengan</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Tanggal Dibuat</th>
-                            <th scope="col">Aksi</th>
+                            <th>NO</th>
+                            <th scope="col" style="min-width: 200px;">Nama</th>
+                            <th scope="col" style="min-width: 200px;">Tahun Ajaran</th>
+                            <th scope="col" style="min-width: 300px;">Mulai Dari</th>
+                            <th scope="col" style="min-width: 300px;">Sampai Dengan</th>
+                            <th scope="col" style="min-width: 150px;">Status</th>
+                            <th scope="col" style="min-width: 300px;">Tanggal Dibuat</th>
+                            <th scope="col" style="min-width: 200px;">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($registrations as $registration)
                             <tr>
-                                <td>{{ ($registrations ->currentpage()-1) * $registrations ->perpage() + $loop->index + 1 }}</td>
+                                <td>{{ ($registrations->currentpage() - 1) * $registrations->perpage() + $loop->index + 1 }}
+                                </td>
                                 <td>{{ $registration->name }}</td>
                                 <td>{{ $registration->academic_year ?: '-' }}</td>
                                 <td>{{ $registration->start_date->translatedFormat('l, d F Y') }}</td>
@@ -48,7 +50,7 @@
                                     @endif
                                 </td>
                                 <td>{{ $registration->created_at->translatedFormat('l, d F Y H:i') }}</td>
-                                <td class="d-inline-flex flex-column">
+                                <td class="d-inline-flex flex-column" style="width: 200px;">
                                     <a href="{{ route('registrations.edit', ['id' => $registration->id]) }}"
                                         class="btn btn-sm btn-primary mb-2">Edit</a>
                                     <form action="{{ route('registrations.destroy', ['id' => $registration->id]) }}"
