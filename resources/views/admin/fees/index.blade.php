@@ -129,7 +129,7 @@
                 <div class="card bg-light">
                     <div class="card-body p-4">
                         <div class="row g-4">
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-3 mb-md-0">
                                 <label for="payment_phone" class="form-label fw-medium">
                                     <i class="bi bi-telephone-fill mr-2"></i>Nomor Telepon
                                 </label>
