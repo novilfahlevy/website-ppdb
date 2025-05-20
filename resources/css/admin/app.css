@@ -28,7 +28,7 @@
 }
 
 /* Sticky sidebar styles */
-.sidebar {
+html body div.wrapper ul.sidebar {
     position: sticky;
     top: 0;
     height: 100vh;
