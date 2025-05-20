@@ -77,7 +77,7 @@
                         </span>
                     </div>
                     <input type="text" name="cari" class="form-control border-left-0" placeholder="Cari pendaftar..."
-                        value="{{ request('search') }}">
+                        value="{{ request('cari') }}">
                 </div>
             </form>
         </div>
