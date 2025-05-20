@@ -13,10 +13,10 @@
                     <thead>
                         <tr>
                             <th>NO</th>
-                            <th>Nama</th>
-                            <th>Email</th>
-                            <th>Tanggal Akun Dibuat</th>
-                            <th>Aksi</th>
+                            <th scope="col" style="min-width: 200px;">Nama</th>
+                            <th scope="col" style="min-width: 200px;">Email</th>
+                            <th scope="col" style="min-width: 250px;">Tanggal Akun Dibuat</th>
+                            <th scope="col" style="min-width: 200px;">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
