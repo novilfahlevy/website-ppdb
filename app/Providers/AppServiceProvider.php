@@ -21,7 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Paginator::useBootstrapFive();
+        Paginator::defaultView('vendor.pagination.bootstrap-responsive');
+        Paginator::useBootstrap();
         
         // Ambil data pendaftaran untuk ditampilkan di navbar
         view()->composer('layouts.app', function ($view) {
