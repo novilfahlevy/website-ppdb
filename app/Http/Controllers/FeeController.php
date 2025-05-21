@@ -16,6 +16,16 @@ class FeeController extends Controller
 
     public function update(Request $request)
     {
+        $request->merge([
+            'sfp_option_1' => str_replace('.', '', $request->input('sfp_option_1')),
+            'sfp_option_2' => str_replace('.', '', $request->input('sfp_option_2')),
+            'sfp_option_3' => str_replace('.', '', $request->input('sfp_option_3')),
+            'sfp_option_4' => str_replace('.', '', $request->input('sfp_option_4')),
+            'sfp_option_5' => str_replace('.', '', $request->input('sfp_option_5')),
+            'dpp_amount' => str_replace('.', '', $request->input('dpp_amount')),
+            'spp_amount' => str_replace('.', '', $request->input('spp_amount')),
+        ]);
+
         $validated = $request->validate([
             'sfp_option_1' => 'required|numeric|min:0',
             'sfp_option_2' => 'required|numeric|min:0',
